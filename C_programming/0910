@@ -42,10 +42,10 @@ int main(void)
 	int cT;
 	double fT;
 
-	printf("�����µ�(����) : ");
+	printf("섭씨온도(정수) : ");
 	scanf("%d", &cT);
 	fT = (cT * 1.8) + 32;
-	printf("ȭ���µ� : %.2lf\n", fT);
+	printf("화씨온도 : %.2lf\n", fT);
 }
 */
 
@@ -56,6 +56,6 @@ int main(void)
 int main(void)
 {
 
-	printf("\t�ȳ��ϼ���\n\n");
+	printf("\t안녕하세요\n\n");
 	printf("\t10 %% 5 = 0\n");
 }
