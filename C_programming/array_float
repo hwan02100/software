@@ -1,0 +1,70 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+void init_arr(double arr[], int size);
+void print_arr(double arr[], int size);
+
+void main(void)
+{
+	int i;
+	double arr[5];
+	double* p = arr;
+
+	init_arr(arr, 5);
+
+//출력방법1
+	print_arr(arr, 5);
+	puts("");
+
+//출력방법2
+	for(i=0; i<5; i++)
+		printf("%.1lf ",	 *(p++) );
+	puts("");						//이렇게 하면 140번지가 출력된다
+/*
+p = 100번지 
+
+p++;		p = 108번지,		p++ = 100번지
+p++;		p = 116번지,		p++ = 108번지
+p++;		p = 124번지,		p++ = 116번지
+p++;		p = 132번지,		p++ = 124번지
+p++;		p = 140번지,		p++ = 132번지
+*/
+	p = arr;			//그래서 원래대로 돌려놔야 한다.
+		
+//출력방법3
+	for(i=0; i<5; i++)
+		printf("%.1lf ", *(arr+i) );
+	puts("");
+
+//출력방법4
+	for(i=0; i<5; i++)
+		printf("%.1lf ", p[i] );
+	puts("");
+	
+//출력방법5
+	for(i=0; i<5; i++)
+		printf("%.1lf ", *(p+i) );
+	puts("");
+	
+//출력방법6
+	for(i=0; i<5; i++)
+		printf("%.1lf ", arr[i]);
+	puts("");	
+
+}
+
+void init_arr(double arr[], int size)	//배열을 받을 때는 말이 없어도 크기를 넣어줘야한다
+{
+	int i;
+	srand( time(NULL) );
+	for(i=0; i<size; i++)
+		arr[i] = (rand()%600+200)/100.0;
+}
+
+void print_arr(double arr[], int size)
+{
+	int i;
+	for(i=0; i<size; i++)
+		printf("%.1lf ", arr[i]);
+}
+
