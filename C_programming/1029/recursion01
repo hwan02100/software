@@ -1,0 +1,78 @@
+#include <stdio.h>
+int fact(int n);
+int sum(int n);
+int power(int a, int b);
+int Fib(int n);
+
+void main(void)
+{
+/*
+//fact(n)함수
+	//5!을 출력하고 싶다
+	printf("5!  = %d\n", fact(5));
+*/
+
+/*
+//sum(n)함수
+	int input;
+	printf("양의 정수 : ");
+	scanf("%d", &input);
+	printf("1부터 %d까지의 합 : %d\n", input, sum(input) );
+*/
+
+/*
+//power(a,b)함수
+	int a, b;
+	printf("2개의 양의 정수 : ");
+	scanf("%d %d", &a, &b);
+	printf("%d의 %d제곱 : %d\n", a, b, power(a,b) );
+*/
+
+
+//Fib(n)함수
+	int input;
+	printf("양의 정수 : ");
+	scanf("%d", &input);
+	printf("%d까지의 피보나치 값 : %d\n", input, Fib(input) );
+
+
+}
+
+//n! 재귀함수
+// n! 을 계산하는 방법은 n * fact(n-1)
+int fact(int n)
+{
+	if(n==1)	
+		return 1;
+	else	
+		return n*fact(n-1);		//이까지하면 80프로는 끝난거
+						//하지만 굉장히 중요한 "탈출조건" 이 아직이다
+						//위에다가 if문으로 적어주자
+}
+
+//1부터 n까지의 합을 반환하는 sum(n)함수
+int sum(int n)
+{
+	if(n==1)	
+		return 1; 
+	else
+		return n+sum(n-1);
+}
+
+//a의 b제곱을 반환하는 power(a,b)함수
+int power(int a, int b)
+{
+	if(b==0)	
+		return 1;
+	else
+		return a*power(a,b-1);
+}
+
+//피보나치 수열 Fib(n) = Fib(n-1) + Fib(n-2) : 0, 1, 1, 2, 3, 5, 8, ...
+int Fib(int n)
+{
+	if(n==1 || n==2)
+		return 1;
+	else 
+		return Fib(n-1)+Fib(n-2);
+}
