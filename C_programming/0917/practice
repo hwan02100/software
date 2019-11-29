@@ -1,0 +1,14 @@
+#include<stdio.h>
+
+//실습
+//일요일 = 0, 월요일 = 1... 토요일 = 6으로 설정
+//사용자에게 며칠 뒤가 궁금한지를 입력받고, 그걸 숫자로 나타내어라
+//오늘은 월요일이다
+int main(void)
+{
+	int now=1;
+	int day;
+	printf("며칠 뒤가 궁금하냐?");
+	scanf("%d", &day);
+	printf("그때는 %d이다.\n", now+day%7);
+}
