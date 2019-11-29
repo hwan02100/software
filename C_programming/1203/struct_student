@@ -1,0 +1,29 @@
+#include <stdio.h>
+//이름(문자열), 나이(정수), 성별(문자)
+struct student
+{
+	int age;
+	char name[20];
+	char gender;
+};
+typedef struct student student;		//struct student 적기 귀찮으니 앞으로 그냥 student로 정의!!
+
+void main(void)
+{
+	struct student hong = {5, "홍길동", 'm'};
+	student jang = {50, "장발장",  'm'};
+
+	printf("나이 : %d\n", jang.age);
+	printf("이름 : %s\n", jang.name);
+	printf("성별 : %c\n", jang.gender);
+	puts("");
+	
+	printf("나이 : %d\n", hong.age);
+	printf("이름 : %s\n", hong.name);
+	printf("성별 : %c\n", hong.gender);
+
+	strcpy(jang.name, "홍길동");		//이름만 바꾸고 싶다(개명)
+	printf("나이 : %d\n", jang.age);
+	printf("이름 : %s\n", jang.name);
+	printf("성별 : %c\n", jang.gender);
+}
