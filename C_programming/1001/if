@@ -1,0 +1,62 @@
+#include <stdio.h>
+
+void main(void)
+{
+/*
+	int score;
+	printf("점수 : ");
+	scanf("%d", &score);
+	
+	if(score>=50)				// if ~ else 사용
+	{
+		puts("통과");
+		puts("축하~!!!"); //이러면 안된다. if 뒤에 두문장 이상일 때, 중괄호로 넣어줘야한다
+	}		//이렇게
+	else
+	{
+		puts("실패");
+		puts("UU");
+	}
+*/
+
+/*
+	int score;
+	printf("점수 : ");
+	scanf("%d", &score);
+
+	if(score>=7)
+		puts("상");
+	else
+	{
+		if(score>=4)
+			puts("중");
+		else
+			puts("하");
+	}
+*/
+
+/*
+	int score;
+	printf("점수 : ");
+	scanf("%d", &score);
+
+	if(score>=7)
+		puts("상");
+	else	if(score>=4)		//붙여서 else if로도 쓸수있다
+		puts("중");
+	else
+		puts("하");
+*/
+
+
+	int score;
+	printf("점수 : ");
+	scanf("%d", &score);
+
+	if(score>=7)		puts("상");
+	else	if(score>=5)		puts("중상");
+	else if(score==4)		puts("중");
+	else		puts("하");
+	
+
+}
