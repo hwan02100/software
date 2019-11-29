@@ -1,0 +1,24 @@
+#include<stdio.h>
+
+void main(void)
+{
+	int a,b;
+	puts("김정환입니다");
+	printf("================입력 부분================\n");	
+	printf("정수 1(a) : ");
+	scanf("%d", &a);
+	printf("정수 2(b) : ");
+	scanf("%d", &b);
+	printf("================계산 결과================\n");	
+	printf("a/b = %lf\n", (double)a/b);
+	printf("a/b 의 정수 부분 : %d\n", a/b);
+	printf("a/b 의 소수 부분 : %lf\n", (double)a/b - a/b);
+	printf("====================================\n");	
+	( (a/b)&0x80000000 )?( printf("a/b 의 정수 부분의 부호 : 음수") ):( printf("a/b 의 정수 부분의 부호 : 0 또는 양수");
+	
+//	printf("a/b 의 정수 부분의 부호 : %s\n", (a/b)&1?"0 또는 양수":"음수"  );
+//	( (a/b)&3 )&1 ? printf("a/b 의 정수 부분을 4로 나눈 나머지 : %d\n",( (a/b)&3 )) : printf(" ") ;
+
+
+
+}
