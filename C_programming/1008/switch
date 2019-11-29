@@ -1,0 +1,223 @@
+#include<stdio.h>
+
+void main(void)
+{
+/*
+	int dice;
+	printf("주사위의 눈 : ");
+	scanf("%d",&dice);
+
+	if(dice==1)	printf("A\n");
+	else if(dice==2)		printf("B\n");
+	else if(dice==3)		printf("C\n");
+	else if(dice==4)		printf("D\n");
+	else if(dice==5)		printf("E\n");
+	else if(dice==6)		printf("F\n");
+	else printf("[입력오류]주사위 눈은 1~6까지다\n");
+*/
+
+/*
+if(조건)
+
+switch(변수이름)
+{
+	case 1 : 이러쿵저러쿵
+	case 2 : 
+	.
+	.
+	.
+	case 6 : 
+
+}
+*/
+
+/*
+	int dice;
+	printf("주사위의 눈 : ");
+	scanf("%d",&dice);
+	
+	switch(dice)
+	{
+		case 1 : puts("A"); break;
+		case 2 : puts("B"); break;
+		case 3 : puts("C"); break;
+		case 4 : puts("D"); break;
+		case 5 : puts("E"); break;
+		case 6 : puts("F"); break;
+		default: puts("[입력오류]주사위 눈은 1~6까지다");	//if문에서는 defalut에 해당
+	}
+*/
+
+/*
+//1부터 3까지는 전부 C이고 나머지는 그대로
+	int dice;
+	printf("주사위의 눈 : ");
+	scanf("%d",&dice);
+	
+	switch(dice)
+	{
+//		case 1, 2, 3 : puts("C"); break;		//이렇게 적으면 안된다.
+		case 1: case 2: case3: puts("C"); break;		//case 하나하나 다 적어야함
+		case 4 : puts("D"); break;
+		case 5 : puts("E"); break;
+		case 6 : puts("F"); break;
+		default: puts("[입력오류]주사위 눈은 1~6까지다");	//if문에서는 defalut에 해당
+	}
+*/
+
+/*
+//달의 일수 출력
+// 사용자로부터 임의의 달(1~12)을 입력받아, 입력받은 달의 일수를 출력하는 프로그램을 작성하라
+// switch-case-defult 문으로 작성
+	int month;
+	printf("몇 월 : ");
+	scanf("%d",&month);
+
+	switch(month)
+	{
+		case 1: case 3: case 5: case 7: case 8: case 10: case 12: printf("%d월은 31일까지 있습니다\n", month);
+			break;
+		case 4: case 6: case 9: case 11: printf("%d월은 30일까지 있습니다\n", month);
+			break;
+		case 2: printf("%d월은 28일까지 있습니다\n", month);
+			break;
+		default : puts("그런달은 없습니다"); 	
+	}
+*/
+
+/*
+	int month, days = 31;
+	printf("몇 월 : ");
+	scanf("%d",&month);
+
+	switch(month)
+	{
+		case 1: case 3: case 5: case 7: case 8: case 10: case 12: 
+			break;
+		case 4: case 6: case 9: case 11: 
+			days = 30;
+			break;
+		case 2: 
+			days = 28;
+			break;
+		default : puts("그런달은 없습니다"); 	
+	}
+	if(month>=1 && month<=12)
+		printf("%d월은 %d일까지 있습니다\n", month, days);
+*/
+
+/*
+	int month, days = 31;
+	printf("몇 월 : ");
+	scanf("%d",&month);
+
+	switch(month)
+	{
+		case 1: case 3: case 5: case 7: case 8: case 10: case 12: 
+			break;
+		case 4: case 6: case 9: case 11: 
+			days = 30;
+			break;
+		case 2: 
+			days = 28;
+			break;
+		default : puts("그런달은 없습니다"); 	
+			return;	//메인함수를 종료 = 프로그램을 종료하겠다
+	}
+		printf("%d월은 %d일까지 있습니다\n", month, days);
+*/
+
+/*
+//방법 1
+//while 사용
+	int month, days = 31;
+
+	printf("몇 월 : ");
+	scanf("%d",&month);
+	
+	while(month>12 || month<1)
+	{
+		puts("[입력오류] 달은 1~12까지만 가능합니다. 다시 입력해주세요.");
+		printf("몇 월 : ");
+		scanf("%d",&month);
+
+	}
+
+	switch(month)
+	{
+		case 1: case 3: case 5: case 7: case 8: case 10: case 12: 
+			break;
+		case 4: case 6: case 9: case 11: 
+			days = 30;
+			break;
+		case 2: 
+			days = 28;
+			break;
+		default : puts("그런달은 없습니다"); 	
+			return;	//메인함수를 종료 = 프로그램을 종료하겠다
+	}
+		printf("%d월은 %d일까지 있습니다\n", month, days);
+*/
+
+/*
+//방법 2
+//do~while 사용
+	int month, days = 31;
+
+	do
+	{
+		printf("몇 월 : ");
+		scanf("%d",&month);
+		if(month>12 || month<1) puts("[입력오류] 달은 1~12까지만 가능합니다. 다시 입력해주세요.");
+	}
+	while(month>12 || month<1);
+		
+	switch(month)
+	{
+		case 1: case 3: case 5: case 7: case 8: case 10: case 12: 
+			break;
+		case 4: case 6: case 9: case 11: 
+			days = 30;
+			break;
+		case 2: 
+			days = 28;
+			break;
+		default : puts("그런달은 없습니다"); 	
+			return;	//메인함수를 종료 = 프로그램을 종료하겠다
+	}
+		printf("%d월은 %d일까지 있습니다\n", month, days);
+*/
+
+
+//방법 3
+//while(0아닌 수) : 무한반복 사용
+	int month, days = 31;
+	while(-7){
+		printf("몇 월 : ");
+		scanf("%d",&month);
+		if(month>=1 && month<=12) break;
+		puts("[입력오류] 달은 1~12까지만 가능합니다. 다시 입력해주세요.");
+	}
+	
+
+	switch(month)
+	{
+		case 1: case 3: case 5: case 7: case 8: case 10: case 12: 
+			break;
+		case 4: case 6: case 9: case 11: 
+			days = 30;
+			break;
+		case 2: 
+			days = 28;
+			break;
+		default : puts("그런달은 없습니다"); 	
+			return;	//메인함수를 종료 = 프로그램을 종료하겠다
+	}
+		printf("%d월은 %d일까지 있습니다\n", month, days);
+
+
+
+
+}
+
+
