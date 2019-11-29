@@ -1,0 +1,83 @@
+#include<stdio.h>
+
+void main(void)
+{
+/*
+//비트표현
+//255이하의 양의 정수를 입력받고, 그 값을 비트로 표현하는 프로그램을 작성하시오
+	int num;
+	int a,b,c,d,e,f,g,h;
+	printf("255이하의 양의 정수 : ");
+	scanf("%d", &num);
+	a = num/128;
+	b = (num%128)/64;
+	c = (num%64)/32;
+	d = (num%32)/16;
+	e = (num%16)/8;
+	f = (num%8)/4;
+	g = (num%4)/2;
+	h = (num%2)/2;
+	printf("%d%d%d%d%d%d%d%d", a,b,c,d,e,f,g,h);
+*/
+	
+
+//비트연산자
+//255이하의 양의 정수를 입력받아 오른쪽으로부터 두번째 비트값을 알아내고, 오른쪽에서 네번째 비트값은 반전시키는 프로그램을 비트연산자를 사용하여 작성하시오.
+	int num, num2;
+	int a,b,c,d,e,f,g,h;
+	int ee;
+	printf("255이하의 양의 정수 : ");
+	scanf("%d", &num);
+
+	a = num/128;
+	b = (num%128)/64;
+	c = (num%64)/32;
+	d = (num%32)/16;
+	e = (num%16)/8;
+	f = (num%8)/4;
+	g = (num%4)/2;
+	h = (num%2)/2;
+	printf("입력값의 비트 표현 : %d%d%d%d%d%d%d%d\n", a,b,c,d,e,f,g,h);
+	
+	printf("입력값의 오른쪽에서 두번째 비트 : %d\n", (num&2)/2);
+	printf("입력값의 오른쪽에서 네번째 비트 : %d\n", (num&8)/8);
+	ee = (e>0)?(ee=0):(ee=1);
+	num2 = (ee>0)?(num+8):(num-8);
+	printf("변환 후 값 : %d(%d%d%d%d%d%d%d%d)", &num2, a,b,c,d,ee,f,g,h);
+	printf("입력값의 두번째 비트 : %d\n", 
+
+/*
+//최댓값, 최솟값 출력
+//두개의 정수를 입력받아 최댓값과 최솟값을 출력하는 프로그램을 작성하시오
+	int num1, num2, max, min;
+	printf("두 개의 정수 입력 : ");
+	scanf("%d %d", &num1, &num2);
+
+	if(num1>num2)
+	{
+		max = num1;
+		min = num2;
+	}
+	else 
+	{
+		max = num2;
+		min = num1;
+	}
+	printf("입력값 %d, %d 중 최댓값은 %d, 최솟값은 %d입니다.", num1, num2, max, min);
+*/
+
+
+
+/*
+//5의 배수 확인
+//사용자로부터 임의의 정수를 입력받아 입력받은 수가 5의 배수인지 아닌지를 검사하는 프로그램을 작성하시오
+	int num;
+	printf("양의 정수 입력 : ");
+	scanf("%d", &num);
+	if(num%5==0)
+		printf("5의 배수입니다.");
+	else
+		printf("5의 배수가 아닙니다.");
+*/
+
+}
