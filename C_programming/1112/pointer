@@ -1,0 +1,193 @@
+#include <stdio.h>
+void pointer_double(void);
+void pointer_int(void);
+void pointer_char();
+//void change_ab(int a, int b);
+void change_ab(int* p_a, int* p_b);
+void change_chars(char* p_c, char* p_d);
+
+/*
+포인터 = 주소
+ex) int a = 13
+변수 - 자료형 : int		같은 값이라도 정수, 문자 등 여러 형태가 있기때문에 이를 구분
+	- 이름  : a		이게 없다면 주소로 찾아들어가야함. 따라서 주소대신이라고 생각
+	- 값	   : 13		참고로 int는 4바이트
+
+*/
+
+
+void main(void)
+{
+/*
+//입력받은 정수를 그대로 출력
+	int a;
+	printf("정수 : ");
+	scanf("%d", &a);
+
+	printf("a : %d\n", a);
+	printf("a의 주소 : %d\n", &a);		//&a 의 의미 : a의 주소에다가 무슨값을 저장해라
+								//이렇게 하면 a가 어디에다가 저장(주소)되어있는지가 나온다
+*/
+
+/*
+//a의 주소를 저장 : 포인터(주소) 변수
+	int a;
+	int* p_a = &a;	//int* = 정수의 주소를 저장
+
+	printf("정수 : ");
+	scanf("%d", &a);
+
+	printf("a : %d\n", a);
+	printf("a의 주소 : %d\n", &a);		
+	printf("a의 주소 : %d\n", p_a);	//a의 주소를 출력하는 다른 방법
+*/
+
+/*
+	int a;
+	int* p_a = &a;	//int* = 정수의 주소를 저장
+
+	printf("정수 : ");
+	scanf("%d", &a);
+
+	printf("a : %d\n", a);		//직접참조
+	printf("a : %d\n", *p_a);	//간접참조 : *(주소) = [이 번지에 저장된 값]을 출력해라 는 의미
+							//*의 의미가 하나가 아니다!!
+*/
+
+/*
+	int a;
+	int* p_a = &a;
+	char c = 'A';	//1바이트가 할당
+				//이게 몇번지에 저장되어 있는지를 알고싶다
+	char* p_c = &c;
+	
+	printf("A는 몇번지에 저장 : %d\n", &c);
+
+	printf("정수 : ");
+	scanf("%d", &a);
+
+	printf("a : %d\n", a);		
+	printf("a : %d\n", *p_a);
+
+	pointer_double();
+*/
+
+/*
+	pointer_int();
+	pointer_double();
+
+	pointer_char();
+*/
+
+/*
+	int a=3, b=7;
+	int temp;
+	//a와 b교환;
+	temp = a;
+	a = b;
+	b = temp;
+
+	printf("a, b 교환 후, a:%d, b:%d\n", a, b);
+*/
+
+/*
+	int a=3, b=7;
+
+	change_ab(a, b);
+	printf("a, b 교환 후, a:%d, b:%d\n", a, b);		//이렇게 하면 전혀 안바뀐채로 출력된다
+											//main에도 a=3, b=7, change_ab에서도 a=3, b=7 즉 다른 영역에 있기때문에 main에는 변경이 안된다
+*/
+
+
+	int a=3, b=7;
+	char c = 'M', d = 'L';
+
+	change_ab(&a, &b);
+	printf("a, b 교환 후, a: %d, b: %d\n", a, b);
+
+	change_chars(&c, &d);
+	printf("c, d 교환 후, c: %c, d: %c\n", c, d);
+}
+
+
+void pointer_double(void)
+{
+	double d = 3.14;
+	double* p_d = &d;
+
+	printf("d : %.2lf\n", d);	//직접참조
+	printf("d : %.2lf\n", *p_d);	//간접참조
+
+	printf("d의 주소 : %d\n", &d);		//주소는 %d로도 쓰지만
+	printf("d의 주소 : %p\n", p_d);	//일반적으로는 %p로 16진수형태를 많이 쓴다
+								//물론 16진법이니 %x로도 해도 같은 결과가 나오겠지만, 그냥 p쓰자
+	
+	printf("d의 주소 : %d\n", &d);		
+	printf("d의 주소+1 : %d\n", p_d+1);	//d의 주소에 1을 더한값이 궁금하다
+									//아마 위의 값에 1을 더한값이 나오지 않을까?
+									//막상 해보면 +8이 나온다
+}
+
+void pointer_int(void)
+{
+	int a = 123;
+	int* p_a = &a;	
+
+	printf("a : %.2lf\n", a);	//직접참조
+	printf("a : %.2lf\n", *p_a);	//간접참조
+
+	printf("a의 주소 : %p\n", &a);		
+	printf("a의 주소 : %d\n", p_a);
+	printf("a의 주소 : ");
+	getchar();
+	printf("%d\n", p_a+1);	//여기는 또 1을 더한값이 아니라
+						//4를 더한값이 나온다
+	
+}
+
+//'M'의 값 출력 2가지 방법, 주소출력 2가지 방법
+void pointer_char()
+{
+	char c = 'M';
+	char* p_c = &c;
+
+	printf("c : %c\n", c);
+	printf("c : %c\n", *p_c);
+
+	printf("c의 주소 : %p\n", &c);
+	printf("c의 주소 : %d\n", p_c);
+
+	printf("c의 주소+1 :" );
+	printf("%d\n", p_c+1);	//여기는 평범하게 +1한 값이 나온다
+						//즉, 주소값에 1을 더한값이 그 값이 아니라 그 다음 자료의 주소를 알려준다
+						//double은 8바이트니까 +8, int는 4바이트니까 +4, char은 1바이트니까 +1
+						//주소에다가 + - 를 한다는건 그 이전이나 다음 자료를 의미한다.
+}
+/*
+void change_ab(int a, int b)
+{
+	int temp;
+	temp = a;
+	a = b;
+	b = temp;
+
+	puts("change_ab() 함수 내부 : ");
+	printf("a, b 교환 후, a:%d, b:%d\n", a, b);	//이렇게 추가하면 change_ab내에서는 제대로 바뀐걸 확인가능하다.
+}
+*/
+
+void change_ab(int* p_a, int* p_b)	//만약 p_a가 100번지라면 p_b는 104번지다 (예시)
+{
+	int* temp;
+	temp = *p_a;
+	*p_a = *p_b;
+	*p_b = temp;
+}
+
+void change_chars(char* p_c, char* p_d)
+{
+	char* temp;
+	temp = *p_c;
+	*p_c = *p_d;
+	*p_d = temp;
+}
