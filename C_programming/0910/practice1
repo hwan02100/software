@@ -1,0 +1,61 @@
+/*
+//practice1
+#include <stdio.h>
+
+int main(void)
+{
+	int age = 20;
+	printf("Enter your age: ");
+	scanf("%d", &age);
+	printf("Your age is %d\n", age);
+	return 0;
+}
+*/
+
+/*
+//practice2
+#include <stdio.h>
+
+int main(void)
+{
+	char c1,c2;
+
+//	scanf("%c\n", &c1);
+//	scanf("%c", &c2);
+
+//	scanf("%c %c", &c1 &c2);
+
+//	scanf("%c	%c", &c1		&c2);
+
+	scanf("%c%c", &c1&c2);
+	printf("%c, %c\n",c1,c2);
+	return 0;
+}
+*/
+
+/*
+//practice4
+#include <stdio.h>
+
+int main(void)
+{
+	int cT;
+	double fT;
+
+	printf("섭씨온도(정수) : ");
+	scanf("%d", &cT);
+	fT = (cT * 1.8) + 32;
+	printf("화씨온도 : %.2lf\n", fT);
+}
+*/
+
+
+//practice5
+#include <stdio.h>
+
+int main(void)
+{
+
+	printf("\t안녕하세요\n\n");
+	printf("\t10 %% 5 = 0\n");
+}
