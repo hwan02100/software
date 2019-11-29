@@ -1,0 +1,38 @@
+#include <stdio.h>
+int inc(int counter);
+int gVal = 1;		//전역변수
+
+/*
+int main(void)
+{
+	int i;
+	i = 10;
+	printf("함수 호출전 i=%d\n", i);
+	inc(i);
+	printf("함수 호출후 i=%d\n", i);
+	return 0;
+}
+int inc(int counter)
+{
+	counter++;
+	return counter;
+}
+*/
+
+void A( )
+{
+	int value = 20;		//지역변수
+	gVal++;
+}
+
+int main(void)
+{
+	int value = 10;
+	printf("지역변수 value 값은 %d이다.\n", value);
+	printf("전역변수 gVal 값은 %d이다.\n", gVal);
+	A( );
+	printf("함수 A( ) 실행 후\n");
+	printf("지역변수 value 값은 %d이다.\n", value);
+	printf("전역변수 gVal 값은 %d다.\n", gVal);
+	return 0;
+}
