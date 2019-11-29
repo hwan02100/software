@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+void init_arr(int arr[], int size);
+void print_arr(int arr[], int size);
+
+//배열 성분을 10~20으로 초기화하는 함수
+//원소가 7개인 배열로 테스트
+
+void main(void)
+{
+	int i, arr[7];
+	
+	init_arr(arr, 7);	//여기의 arr이 사실은 주소를 넘겨준거다
+					//arr이 첫번째성분의 주소
+					//그래서 main의 배열에도 영향을 끼침
+	print_arr(arr, 7);
+
+}
+
+void init_arr(int arr[], int size)
+{
+	int i;
+	srand( time(NULL) );
+	for(i=0; i<size; i++)
+		arr[i] = rand()%11+10;
+}
+
+void print_arr(int arr[], int size)
+//void print_arr(int* arr, int size)		//요렇게 표현해도 아무문제 없다.
+								//arr 자체가 주소를 의미하기 때문
+{
+	int i;
+	for(i=0; i<size; i++)
+		printf("%d ", arr[i]);
+}
