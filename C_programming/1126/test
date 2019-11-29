@@ -1,0 +1,59 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+void init_arr(double arr[][5], int row, int column);
+void print_arr(double arr[][5], int row, int column);
+void max_arr(double arr[][5], int row, int column);
+
+void main(void)
+{
+	double arr[2][5];
+
+	init_arr(arr, 2, 5);
+
+	print_arr(arr, 2, 5);
+
+	max_arr(arr, 2, 5);
+}
+
+void init_arr(double arr[][5], int row, int column)
+{
+	int i,j;
+	srand( time(NULL) );
+	for(i=0; i<row; i++)
+	{
+		for(j=0; j<column; j++)
+			arr[i][j] = (rand()%31-15)/10.0;
+	}
+}
+
+void print_arr(double arr[][5], int row, int column)
+{
+	int i,j;
+	for(i=0; i<row; i++)
+	{
+		for(j=0; j<column; j++)
+			printf( "%5.1lf ", arr[i][j]);
+		puts("");
+	}
+}
+
+void max_arr(double arr[][5], int row, int column)
+{
+	int i,j;
+	double max=arr[0][0];
+	int index_row = 0;
+	int index_column = 0;
+	for(i=0; i<row; i++)
+	{
+		for(j=0; j<column; j++)
+		{
+			if(max<arr[i][j])
+			{
+				max = arr[i][j];
+				index_row = i, index_column = j;
+			}
+		}
+	}
+	printf("이차원 배열의 최댓값 : %.1lf (%d 행, %d 열 성분) ", max, index_row,index_column);
+}
