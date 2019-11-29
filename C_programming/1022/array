@@ -1,0 +1,172 @@
+#include <stdio.h>
+#define student_num = 100;	//제일 밑에서 쓰인다
+
+void main(void)
+{
+/*
+	int score_a, score_b, score_c, score_d, score_e;
+
+	printf("학생 1의 점수 : ");
+	scanf("%d", &score_a);
+	printf("학생 2의 점수 : ");
+	scanf("%d", &score_b);
+	printf("학생 3의 점수 : ");
+	scanf("%d", &score_c);
+	printf("학생 4의 점수 : ");
+	scanf("%d", &score_d);
+	printf("학생 5의 점수 : ");
+	scanf("%d", &score_e);
+
+	puts("==========입력완료==========");
+	printf("학생 1의 점수 : %d\n", score_a);
+	printf("학생 2의 점수 : %d\n", score_b);
+	printf("학생 3의 점수 : %d\n", score_c);
+	printf("학생 4의 점수 : %d\n", score_d);
+	printf("학생 5의 점수 : %d\n", score_e);
+*/
+
+/*
+//배열 : 같은 자료형의 자료를 한번에 여러개 저장
+//정수형 배열로해보자
+	int score[5] = {100,90,80,60,10};			//배열 선언과  초기화
+	printf("학생2의 점수 : %d\n", score[1]);
+*/
+
+/*
+//모든 학생의 점수를 출력, 반복문을 사용해서
+	int i, student, score[5];	
+	int sum=0;
+	
+	for(i=0; i<5; i++)
+	{
+		printf("학생 %d의 점수 : ", i+1);
+		scanf("%d", &score[i]);
+	}
+
+	puts("==========입력완료==========");
+	printf("몇 번 학생? ");
+	scanf("%d",&student);
+	
+	while(student<1 || student>5)
+	{
+		puts("[입력오류] 1번부터 5번까지의 학생만 있습니다. 번호를 다시 입력해주세요.");
+		printf("몇 번 학생? ");
+		scanf("%d",&student);
+	}
+	printf("%d번 학생의 점수 : %d\n", student, score[student-1]);
+
+	for(i=0; i<5; i++)
+	{
+		sum += score[i];
+	}
+	printf("학생들의 평균 : %.2lf\n", (double)sum/5);
+*/
+
+/*
+	short b= 27;
+	int a = 43;
+	int arr[5];
+
+	sizeof(b);
+*/
+
+/*
+	int i, student, score[5];	
+	int sum=0;
+	
+	for(i=0; i<5; i++)
+	{
+		printf("학생 %d의 점수 : ", i+1);
+		scanf("%d", &score[i]);
+	}
+
+	puts("==========입력완료==========");
+	printf("몇 번 학생? ");
+	scanf("%d",&student);
+	
+	while(student<1 || student>5)
+	{
+		puts("[입력오류] 1번부터 5번까지의 학생만 있습니다. 번호를 다시 입력해주세요.");
+		printf("몇 번 학생? ");
+		scanf("%d",&student);
+	}
+	printf("%d번 학생의 점수 : %d\n", student, score[student-1]);
+
+	for(i=0; i<5; i++)
+	{
+		sum += score[i];
+	}
+	printf("학생들의 평균 : %.2lf\n", (double)sum/5);
+	//이렇게 다 했는데, score 배열의 성분개수를 까먹었다. 물론 올라가서 확인할수도 있지만 다른 방법을 써보자
+	
+	printf("score배열의 성분개수 : %d\n", sizeof(score)/sizeof(score[0]) );
+*/
+
+/*
+//학생수를 입력받아서
+//모든 학생의 점수를 출력, 반복문을 사용해서, 
+	int student_num, i, student, score[100];	
+	int sum=0;
+	
+	printf("학생수? ");
+	scanf("%d", &student_num);
+
+	for(i=0; i<student_num; i++)
+	{
+		printf("학생 %d의 점수 : ", i+1);
+		scanf("%d", &score[i]);
+	}
+
+	puts("==========입력완료==========");
+	printf("몇 번 학생? ");
+	scanf("%d",&student);
+	
+	while(student<1 || student>student_num)
+	{
+		printf("[입력오류] 1번부터 %d번까지의 학생만 있습니다. 번호를 다시 입력해주세요.", student_num);
+		printf("몇 번 학생? ");
+		scanf("%d",&student);
+	}
+	printf("%d번 학생의 점수 : %d\n", student, score[student-1]);
+
+	for(i=0; i<student_num; i++)
+	{
+		sum += score[i];
+	}
+	printf("학생들의 평균 : %.2lf\n", (double)sum/student_num);
+*/
+
+
+	int i, student;
+	int score[student_num];		//요러케도 가능하다
+	int sum=0;
+	
+	printf("학생수? ");
+	scanf("%d", &student_num);
+
+	for(i=0; i<student_num; i++)
+	{
+		printf("학생 %d의 점수 : ", i+1);
+		scanf("%d", &score[i]);
+	}
+
+	puts("==========입력완료==========");
+	printf("몇 번 학생? ");
+	scanf("%d",&student);
+	
+	while(student<1 || student>student_num)
+	{
+		printf("[입력오류] 1번부터 %d번까지의 학생만 있습니다. 번호를 다시 입력해주세요.", student_num);
+		printf("몇 번 학생? ");
+		scanf("%d",&student);
+	}
+	printf("%d번 학생의 점수 : %d\n", student, score[student-1]);
+
+	for(i=0; i<student_num; i++)
+	{
+		sum += score[i];
+	}
+	printf("학생들의 평균 : %.2lf\n", (double)sum/student_num);
+
+
+}
