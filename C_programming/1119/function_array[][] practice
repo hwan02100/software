@@ -1,0 +1,216 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+void init_arr(double arr[][4], int row);
+void print_arr(double arr[][4], int row);
+double sum_arr(double arr[][4], int row);
+void sum_row(double arr[][4], int row);
+void sum_column(double arr[][4], int row);
+int index_maxsum_row(double arr[][4], int row);
+double max_arr(double arr[][4], int row);
+void index_max_arr(double arr[][4], int row);
+void shuffle_arr(double arr[][4], int row);
+int* index2_max_arr(double arr[][4], int row);
+
+void main(void)
+{
+	double arr[3][4];
+	int *a;	//주소를 하나 받자
+			//이건 제일 마지막에 쓰일거
+
+	init_arr(arr, 3);
+	
+	puts("배열 성분 초기화 후 출력 :");
+	print_arr(arr, 3);
+	puts("");
+
+	printf("이차원 배열의 모든 성분의 합 : %.1lf\n", sum_arr(arr, 3) );
+	puts("");
+
+	puts("열별 합 : ");
+	sum_column(arr, 3);
+	puts("");
+
+	puts("행별 합 : ");
+	sum_row(arr, 3);
+	puts("");
+
+	printf("행별 합이 가장 큰 행 : %d\n", index_maxsum_row(arr, 3) );
+	puts("");
+
+	printf("배열에서 최댓값 : %.1lf\n", max_arr(arr, 3) );
+	puts("");
+
+	index_max_arr(arr, 3);
+	puts("");
+
+	puts("배열 성분 셔플 후 출력 : ");
+	shuffle_arr(arr, 3);
+	print_arr(arr, 3);
+	puts("");
+
+	a = index2_max_arr(arr,3);
+	printf("배열에서 최댓값의 인덱스 : (%d, %d) \n", a[0], a[1] );
+}
+
+//배열의 성분을 0.0이상 10.0이하의 난수로 초기화하는 함수:
+void init_arr(double arr[][4], int row)
+{
+	int i,j;
+	srand( time(NULL) );
+	for(i=0; i<row; i++)
+	{
+		for(j=0; j<4; j++) 
+			arr[i][j] = (rand()%101)/10.0;
+	}
+}
+
+//배열의 모든 성분을 출력하는 함수
+void print_arr(double arr[][4], int row)
+{
+	int i,j;
+	for(i=0; i<row; i++)
+	{
+		for(j=0; j<4; j++) 
+			printf(" %.1lf  ", arr[i][j]);
+		puts("");
+	}
+}
+
+//배열의 모든 성분의 합을 반환하는 함수
+double sum_arr(double arr[][4], int row)
+{
+	int i,j;
+	double sum = 0;
+	for(i=0; i<row; i++)
+	{
+		for(j=0; j<4; j++)
+			sum += arr[i][j];
+	}
+	return sum;
+}
+
+//배열의 열별 합을 출력하는 함수
+void sum_column(double arr[][4], int row)
+{
+	int i,j;
+	double sum = 0;
+	for(j=0; j<4; j++)
+	{
+		for(i=0; i<row; i++)
+			sum += arr[i][j];
+		printf("%d열의 합 : %.1lf\n", j+1, sum);
+		sum = 0;
+	}
+}
+
+//배열의 행별 합을 출력하는 함수
+void sum_row(double arr[][4], int row)
+{
+	int i,j;
+	double sum = 0;
+	for(i=0; i<row; i++)
+	{
+		for(j=0; j<4; j++)
+			sum += arr[i][j];
+		printf("%d행의 합 : %.1lf\n", i+1, sum);
+		sum = 0;
+	}
+}
+
+//배열의 행별 합이 가장 큰 행을 반환하는 함수
+int index_maxsum_row(double arr[][4], int row)
+{
+	int i,j;
+	int index;
+	double sum = 0, max = 0;
+	for(i=0; i<row; i++)
+	{
+		for(j=0; j<4; j++)
+			sum += arr[i][j];
+		if(max<sum)
+		{
+			max = sum;
+			index = i;
+		}
+		sum = 0;
+	}
+	return index+1;
+}
+
+//배열 성분의 최댓값을 반환하는 함수
+double max_arr(double arr[][4], int row)
+{
+	int i,j;
+	double max = 0;
+	for(i=0; i<row; i++)
+	{
+		for(j=0; j<4; j++)
+		{
+			if(max < arr[i][j])
+				max = arr[i][j];
+		}
+	}
+	return max;
+}
+
+//배열 성분의 최댓값의 인덱스를 출력하는 함수
+void index_max_arr(double arr[][4], int row)
+{
+	int i,j;
+	double max = 0;
+	int index_row = 0, index_column = 0;
+	for(i=0; i<row; i++)
+	{
+		for(j=0; j<4; j++)
+		{
+			if(max < arr[i][j])
+			{
+				max = arr[i][j];
+				index_row = i, index_column = j;
+			}
+		}
+	}
+	printf("배열에서 최댓값의 인덱스 : (%d, %d)\n", index_row, index_column);
+}
+
+//배열 성분 셔플링
+void shuffle_arr(double arr[][4], int row)
+{
+	int i,j, a,b;
+	double tmp;
+	srand( time(NULL) );
+	a = rand()%3;
+	b = rand()%4;
+
+	for(i=0; i<row; i++)
+	{
+		for(j=0; j<4; j++)
+		{
+			tmp = arr[i][j];
+			arr[i][j] = arr[a][b];
+			arr[a][b] = tmp;
+		}
+	}
+}
+
+
+//배열 성분의 최댓값의 인덱스를 반환하는 함수
+int* index2_max_arr(double arr[][4], int row)
+{
+	int i,j;
+	double max = 0;
+	int index[2];
+	for(i=0; i<row; i++)
+	{
+		for(j=0; j<4; j++)
+		{
+			if(max < arr[i][j])
+			{
+				max = arr[i][j];
+				index[0] = i, index[1] = j;
+			}
+		}
+	}
+	return index;
+}
