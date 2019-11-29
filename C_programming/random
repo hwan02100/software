@@ -1,0 +1,36 @@
+#include <stdio.h> //printf()함수 사용위해 추가
+#include <stdlib.h>	//rand() 함수 위해 추가
+#include <time.h>	//time() 함수 위해 추가
+
+void main(void)
+{
+/*
+	int i;
+	srand(time(NULL)); //실행할때마다 다른 랜덤넘버가 생성되게 함
+	for(i=0; i<10; i++)
+		printf("정수형 랜덤 넘버 : %d\n", rand() );	//rand() : c언어에서 기본적으로 제공하는 함수이지만 위에 이게 포함된걸 추가해줘야한다
+		//rand() : 0 ~2^(15)-1
+*/
+
+/*
+//0 이상 10이하의 수들로 랜덤넘버를 생성하고 싶다
+	int i;
+	srand(time(NULL)); 
+	for(i=0; i<10; i++)
+		printf("정수형 랜덤 넘버 : %d\n", rand()%11);
+	puts("");
+*/
+
+
+// 5이상 23이하의 수들로 랜덤넘버생성
+// 0이상 18이하의 수들로 랜덤넘버생성 한 후 +5
+	int i;
+	srand(time(NULL)); 
+	for(i=0; i<10; i++)
+		printf("정수형 랜덤 넘버 : %d\n", rand()%19+5);
+	puts("");
+
+
+
+
+}
