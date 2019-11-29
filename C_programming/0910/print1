@@ -1,0 +1,23 @@
+#include<stdio.h>
+
+int main(void)
+{
+	int age;
+	char gender;
+	double Asight;
+
+	printf("몇살임?");
+	scanf("%d", &age);
+
+/*	fflush(stdin); //stdin(의미 : 키보드) 버퍼에 남아있는 자료를 비움
+*/
+	getchar();
+
+	printf("성별은?");
+	scanf("%c", &gender);
+	
+	printf("오른쪽눈?");
+	scanf("%lf", &Asight);
+
+	printf("나이 %d살이고, 성별은 %c, 오른눈 시력은 %.2f임", age, gender, Asight);
+}
