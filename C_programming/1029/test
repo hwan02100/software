@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main(void)
+{
+	int line;
+	int i,j;
+	while(1)
+	{
+		printf("몇 라인: ");
+		scanf("%d", &line);	
+		if(line>0)		break;
+		puts("라인은 양수로 입력해주세요.");
+	}
+
+	for(i=0; i<line; i++)
+	{
+		for(j=0; j<2*(line-1-i); j++)	printf(" ");
+		for(j=0; j<4*i+1; j++)	printf("*");
+		puts("");
+	}
+
+}
