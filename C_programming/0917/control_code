@@ -1,0 +1,74 @@
+#include<stdio.h>
+
+int main(void)
+{
+
+/*	
+	printf("경북\b대학교\n"); //경대학교 출력	// \b : 커서를 하나 앞으로 땡기는 역할
+	printf("경북대학교\b\n"); //경북대학교 출력 =>커서가 그냥 학, 교 사이에 있는거
+	printf("경북\r대학교\n"); //대학교 출력 // \r : 커서를 제일 앞으로 땡기는 역할
+*/
+
+/*
+	char gender;
+	printf("성별(m/f)을 입력하시오 ");
+	scanf("%c", &gender);
+	printf("성별은 %c입니다.\n", gender);	//이게 지금까지 해온방법
+*/
+
+/*
+	char gender;
+	printf("성별(m/f)을 입력하시오 ");
+	gender = getchar();			//getchar() : 문자하나만 입력받는 방법
+	printf("성별은 %c입니다.\n", gender);
+*/
+
+/*
+	char gender;
+	printf("성별(m/f)을 입력하시오 ");
+	gender = getchar();
+	printf("성별은 ");
+	putchar(gender);			//putchar() : 문자 하나 출력
+*/
+
+/*
+	char gender;
+	printf("성별(m/f)을 입력하시오");
+	gender = getchar();
+	printf("성별은 ");
+	putchar(gender);
+	puts("입니다\n");			//puts() : 문자열 출력 
+*/
+
+/*
+	char gender;
+	printf("성별(m/f)을 입력하시오 ");
+	gender = getchar();
+	printf("성별은 %x입니다. \n", gender);		//아스키코드로 출력
+*/
+
+/*
+	char gender;
+	char name[20];
+	printf("성별(m/f)을 입력하시오 ");
+	gender = getchar();
+	printf("이름 : ");
+	gets(name);			//이렇게 하면 안된다 -> 이유? 위에서 m이나 f를 입력하고 엔터를 쳤을때, 엔터도 char로 인식을 하기때문에 문자 두개를 입력한 셈이다.
+										//따라서 gets(name)에서 엔터만 입력한 게 되어버린다.
+	printf("성별은 %x이고, 이름은 %s다. \n", gender, name);
+*/
+
+
+	char gender;
+	char name[20];
+	printf("성별(m/f)을 입력하시오 ");
+	gender = getchar();
+	
+	//fflush(stdin);			//이렇게 하거나		->이거는 윈도우에서만 가능
+	getchar();				//이렇게 하면 된다
+
+	printf("이름 : ");
+	gets(name);			
+	printf("성별은 %x이고, 이름은 %s다. \n", gender, name);
+
+}
