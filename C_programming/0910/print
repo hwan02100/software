@@ -1,0 +1,58 @@
+#include<stdio.h>
+
+int main(void)
+{
+	/*
+	double weight;
+	char name[10];
+	puts("\t이름?");	//putstring의 약자	//tab만큼 띄우고 싶을때
+//	scanf("%s", name);		//문자열은 %s로 입력받고, &도 쓰지 않는다
+	gets(name);		//get string : 문자열(문자 여러개)(띄어쓰기도 가능)
+	printf("\" ");	// "를 출력하고 싶을때
+	printf("\\");	// \를 출력하고 싶을때
+//	printf("내 이름은 %s입니다\n", name);
+	
+
+
+	printf("님 얼마나 무거움?");
+	scanf("%lf", &weight);
+	puts("와....."); //순수하게 문장을 출력할때
+
+	printf("사람 무게가 %.3lf라고? 실화냐?\n", weight);
+	printf("사람 무게가 %5.1lf라고? 실화냐?\n", weight); //%5.1lf : 5칸을 확보하고, 소수점 1칸, 소수점 뒤에 1칸, 앞에 나머지를 분배
+	*/
+
+	int age, grade;	//변수선언은 언제나 제일 위에 있어야한다.
+	printf("나이? 학년?");
+//	scanf("%d, %d", &age, &grade);	//콤마(,)로 구분하고 싶을때 =>입력할때도 콤마로 해야한다.
+	scanf("%d+ %d", &age, &grade);	//더하기(+)로 구분하고 싶을때
+
+	printf("니가 %d살이고, %d학년이군\n", age, grade);
+
+	printf("몇살이야?");
+	scanf("%d", &age);
+
+
+
+	//printf("나이가 %d살이라고?\n", age);
+	printf("나이가 %10d살이라고?\n", age);	// 숫자 : 공간확보
+	printf("나이가 %5d살이라고?\n", age);
+	printf("%5.2lf", age);	// 5칸 확보하고, 끝에 두자리는 소수자리, 그 앞에 점하나 찍고 정수부분
+
+	printf("나이가 %-10d살이라고?\n", age);	// - : 왼쪽정렬을 하겠다(숫자가 꼭 있어야함)
+	printf("나이가 %+5d살이라고?\n", age);	// + : (+든 -든) 기호를 표시하겠다
+
+	printf("나이가 %#o살이라고?\n", age);	//나이를 8진법으로 나타내고 싶을때
+	printf("나이가 %#x살이라고?\n", age);	//나이를 16진법으로
+	printf("나이가 %#X살이라고?\n", age);	//나이를 16진법으로 나타내고 또 대문자로 나타내고 싶을때
+
+
+
+	printf("몇학년이야?");
+	scanf("%d", &grade);
+	
+	printf("니가 %d학년이군", grade);
+
+
+
+}
