@@ -1,0 +1,43 @@
+#include <stdio.h>
+double smaller_arr(double* arr, int size, double a);
+int num_smaller_avr(int* arr, int size);
+
+void main(void)
+{
+	double arr1[] = {1.2, 3.4, 1.1, 2.6, 7.2, 8.9};
+	int arr2[] = {1, 2, 5, 8, 10, 7};
+	printf("5보다 작은 수들의 합 : %.2lf\n", smaller_arr(arr1, 6, 5) );
+
+	printf("평균보다 작은 수들의 개수 : %d\n", num_smaller_avr(arr2, 6) );
+}
+
+//실수형 일차원배열과 실수a를 매개 변수로 받아 배열에서 a보다 작은 수들의 합을 반환
+double smaller_arr(double* arr, int size, double a)
+{
+	int i;
+	double sum=0;
+	for(i=0; i<size; i++)
+	{
+		if(arr[i]<a)
+			sum += arr[i];
+	}
+	return sum;
+}
+
+//정수형 일차원 배열을 매개 변수로 받아 배열에서 평균보다 작은 수들의 개수를 반환
+int num_smaller_avr(int* arr, int size)
+{
+	int i, num=0;
+	double avr, sum=0;
+
+	for(i=0; i<size; i++)
+			sum += arr[i];
+	avr = sum/size;
+
+	for(i=0; i<size; i++)
+	{
+		if(arr[i]<avr)
+			num++;
+	}
+	return num;
+}
