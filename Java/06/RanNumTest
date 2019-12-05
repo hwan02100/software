@@ -1,0 +1,22 @@
+//Random 클래스 사용하여 난수 생성
+
+import java.util.Random;
+
+class RanNumTest
+{
+	public static void main(String [] args)
+	{
+		Random r = new Random();		//난수 생성기 하나 만들었다
+										//Random 자료형의 이름은 r
+		
+		//실수형 난수 생성 후 출력
+		System.out.println("실수형 난수 : " + r.nextDouble());		//Math.random()과 비슷하다
+		
+		//정수형 난수 생성 후 출력
+		System.out.println("정수형 난수 : " + r.nextInt());
+		
+		//0~7 정수형 난수 생성 후 출력
+		System.out.println("정수형 난수 : " + r.nextInt(8));
+		
+	}
+}
