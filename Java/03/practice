@@ -1,0 +1,57 @@
+//사용자에게 이름, 나이, 시력을 받아서 출력
+
+import java.util.Scanner;
+
+class practice
+{
+	public static void main(String [] args)
+	{	
+		Scanner sc = new Scanner(System.in);
+		
+		String name;
+		int age;
+		double eye;
+/*	
+		System.out.print("이름 : ");
+		name = sc.next();				//문자열 입력받음
+									//근데 여기서 이름사이에 띄어쓰기하면 오류뜬다
+									//next()는 공백 전까지의 문자열을 입력받는다
+									//만약 공백이 있을 시에는 next()가 아니라 nextLine()을 쓰자
+		
+		System.out.print("나이 : ");
+		age = sc.nextInt();
+		System.out.print("시력 : ");
+		eye = sc.nextDouble();
+		
+		System.out.printf("이름 : %s, 나이 : %d, 시력 : %.2f\n", name, age, eye);
+*/
+	
+/*
+		System.out.print("나이 : ");
+		age = sc.nextInt();				//여기서 buffer라는 곳에 입력값,엔터가 입력되고 입력값은 age에 저장되고 엔터만 남는다
+		System.out.print("시력 : ");
+		eye = sc.nextDouble();			//buffer에 남아있던 엔터는 무시되고, 실수값을 새로 적고 엔터를 치면 실수값은 eye에 저장되고 엔터만 남는다
+		System.out.print("이름 : ");
+		name = sc.nextLine();			//여기서 컴파일하면 이름칸에 뭐 적을새도 없이 그냥 넘어가버린다
+									//버퍼에 남아있던 엔터가 여기서 읽혀버리고 깔끔하게 넘어간다.
+									//그러니까 실수값 저장하고 난 다음에 nextLine으로 버퍼를 비워주자
+									//(사실 그냥 nextLine 안쓰고 next 써주면 스근하게 된다)
+*/
+	
+/*
+		System.out.print("나이 : ");
+		age = sc.nextInt();			
+		System.out.print("시력 : ");
+		eye = sc.nextDouble();		
+		s.nextLine();					//이렇게!!
+		System.out.print("이름 : ");
+		name = sc.nextLine();			//참고 
+									//nextLine() = 공백포함한 한 라인을 통째로 입력받음
+									//next() = 공백전까지의 문자열 입력받음
+		
+		System.out.printf("이름 : %s, 나이 : %d, 시력 : %.2f\n", name, age, eye);
+*/
+	
+			
+	}
+}
