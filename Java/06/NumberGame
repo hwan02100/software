@@ -1,0 +1,31 @@
+//java Day03-06 34페이지 [숫자 추측 게임]
+//사용자가 입력한 값이 0이상 100이하의 랜덤값이면 성공
+
+/*		
+import java.util.Random;
+import java.util.Scanner;
+*/
+import java.util.*;		//java.util 패키지의 모든 클래스를 import
+
+class NumberGame
+{
+	public static void main(String args[])
+	{
+		Random ran = new Random();
+		Scanner sc = new Scanner(System.in);
+		
+		int input, answer;
+		answer = ran.nextInt(101);			//0이상 100이하의 랜덤값 생성
+		
+		System.out.print("맞춰보세요 : ");
+		input = sc.nextInt();
+		
+		if(input > answer)
+			System.out.printf("정답보다 크네요. 정답 : %d\n", answer);
+		else if(input < answer)
+			System.out.printf("정답보다 작네요. 정답 : %d\n", answer);
+		else
+			System.out.printf("%d : 정답입니다!!\n", answer);
+		
+	}
+}
