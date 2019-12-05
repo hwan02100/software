@@ -1,0 +1,58 @@
+//java Day03-06 41페이지 [Nested if]
+
+import java.util.Scanner;
+
+class NestedIf
+{
+	public static void main(String args[])
+	{
+/*		
+		Scanner sc = new Scanner(System.in);
+		String type;		//이건 참조변수(참조값(주소값)이 저장된다)
+		int score;		//애는 기초변수(실제 값을 저장)
+		
+		System.out.print("면허시험 종류(1종, 2종) : ");
+		type = sc.nextLine();
+		
+		System.out.print("필기 면허시험 점수 : ");
+		score = sc.nextInt();
+		
+		if(type.equals("1종"))			//문자열을 비교할때는 type.equals()를 사용하자!!!!
+		{
+			if(score>=70)
+				System.out.println("1종 면허시험 합격");
+			else
+				System.out.println("1종 면허시험 불합격");
+		}
+		
+		else if(type.equals("2종"))
+		{
+			if(score>=60)
+				System.out.println("2종 면허시험 합격");
+			else
+				System.out.println("2종 면허시험 불합격");
+		}
+		
+		else 
+			System.out.println("[입력오류] 타입은 1종/2종으로만 입력해주세요");
+*/
+
+
+//java Day03-06 45페이지 [If문을 통해 변수 초기화]
+		Scanner sc = new Scanner(System.in);
+		int input;
+		int b;
+		input = sc.nextInt();
+		
+		if(input > 0)
+			b = 1;
+		else if(input < 0)
+			b = -1;
+		else 					//여기 제일 마지막에 else(input == 0) 이라고 적으면 어떻게 될까
+								//컴파일은 되지만 출력은 안된다
+			b = 0;	
+		
+		System.out.println(b);
+		
+	}
+}
