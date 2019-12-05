@@ -1,0 +1,67 @@
+//java Day03-06 70페이지 패턴출력
+//교수님버전
+//을 할려고 했는데 지루하니까 다른거 좀 해보자
+
+import java.util.Scanner;
+//커맨드 라인의 인자로 들어온 두 수의 합을 출력
+
+class command
+{
+	public static void main(String [] args)
+	{
+		//커맨드라인의 인자가 2개가 되지 않는다면 프로그램을 종료시키고 싶다
+		if(args.length < 2)
+		{
+			System.out.println("[Usage] java command 인자1 인자2");		//사용방법을 알려주는것
+			return;
+		}
+	/*	
+		System.out.println("커맨드 라인의 인자로 들어온 두 수의 합 : " + (args[0] + args[1]) );	//이렇게 하면 그냥 두 인자를 이어주기만 한다
+																					//난 더하기를 하고 싶은데
+	*/
+		System.out.println("커맨드 라인의 인자로 들어온 두 수의 합 : " + (Integer.parseInt(args[0]) + Integer.parseInt(args[1]) ) );		//이렇게 하면 더하기가 실행된다
+																														//만약 실수형으로 하고싶으면 
+																														//Integer.parseDouble("3.4")	
+																														//이런식으로 하면 된다.
+		
+	/*		
+		System.out.println(args[0]);
+		System.out.println(args[2]);			//cmd에서 실행할때 
+										//java command abc Hi! 123 이라고 치면
+										// abc 123 학생수 : 라고 뜬다
+	*/
+	
+
+
+
+	
+/*	 
+	//	int a[5] = {1, 2, 3, 4, 5};		//이건 C에서 하던거
+		int [] a = new int[10];			//이게 자바에서의 정수형 배열
+									//원소 10개짜리의 정수형 배열
+*/
+	
+	// 학생들의 성적을 저장하는 배열
+	// 학생이 몇명인지 입력받아 그만큼의 배열을 만들기
+		Scanner sc = new Scanner(System.in);
+		int numOfStu;
+		int [] scores;
+		
+		System.out.print("학생 수 : ");
+		numOfStu = sc.nextInt();
+		scores = new int[numOfStu];
+		
+	// 모든 학생의 점수 입력 받아 학생의 평균 계산하기
+		double sum = 0;
+		
+		for(int i=0; i<numOfStu; i++)
+		{
+			System.out.printf("학생 %d의 점수 : ", i+1);
+			scores[i] = sc.nextInt();
+			sum += scores[i];
+		}
+		
+		
+		System.out.printf("학생의 평균 : %.2f", sum/numOfStu);
+	}
+}
