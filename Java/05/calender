@@ -1,0 +1,59 @@
+//java Day03-06 53페이지 [입력한 달에 존재하는 날의 수 출력 코드]
+
+import java.util.Scanner;
+
+class calender
+{
+	public static void main(String args[])
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		int year, month;
+		int day;
+		
+		System.out.print("몇 년 : ");
+		year = sc.nextInt();
+		
+		System.out.print("몇 월 : ");
+		month = sc.nextInt();
+		
+		if( (year%4 == 0 && year%100 != 0) || year%400 == 0 )
+		{
+			switch(month)
+			{
+				case 1: case 3: case 5: case 7: case 8: case 10: case 12: day = 31;
+				break;
+				
+				case 4: case 6: case 9: case 11: day = 30;
+				break;
+				
+				case 2: day = 29;
+				break;
+				
+				default : System.out.print("[입력오류] 그런 달 없음\n");		//이렇게 하거나
+				return;												//default 빼버리고 위에 day = 31처럼 초기화시켜주거나
+			}
+		}
+		
+		else
+		{
+			switch(month)
+			{
+				case 1: case 3: case 5: case 7: case 8: case 10: case 12: day = 31;
+				break;
+				
+				case 4: case 6: case 9: case 11: day = 30;
+				break;
+				
+				case 2: day = 28;
+				break;
+				
+				default : System.out.print("[입력오류] 그런 달 없음\n");
+				return;
+			}
+		}	
+		
+		System.out.printf("%d년 %d월은 %d일까지 있습니다\n", year, month, day);
+		
+	}
+}
