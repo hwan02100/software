@@ -1,0 +1,47 @@
+//성적을 입력받아서 50점 이상이면 합격 출력하기
+
+import java.util.Scanner;
+
+class IfTest
+{
+	public static void main(String args[])
+	{
+		Scanner sc = new Scanner(System.in);
+		
+/*		
+		int score;
+		
+		System.out.print("성적 : ");
+		score = sc.nextInt();
+		
+		if(score>=70)
+		{	
+			System.out.println("합격");				//반복문에서 두줄 이상이면 {}를 사용해야 한다
+			System.out.println("장학금 100만원");
+		}
+		else if(score>=50)						//경우가 3가지 이상이면 else if 를 사용
+		{										
+			System.out.println("합격");		
+			System.out.println("장학금 50만원");
+		}
+		else										//한줄이면 ㄱㅊ
+			System.out.println("불합격");
+*/			
+
+		
+//java Day03-06 30페이지 점검문제 3번		
+		int size_cup;
+		System.out.print("컵의 사이즈(숫자) : ");
+		size_cup = sc.nextInt();
+		
+		if(size_cup>=200)
+			System.out.print("large\n");
+		
+		else if(size_cup>=100)
+			System.out.print("medium\n");
+		
+		else
+			System.out.print("small\n");	
+		
+	}
+}
