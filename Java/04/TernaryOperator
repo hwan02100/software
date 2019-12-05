@@ -1,0 +1,24 @@
+//정수 두개를 입력받아 최대값을 찾기
+//삼항연산자(조건연산자)를 사용
+
+import java.util.Scanner;
+
+class TernaryOperator
+{
+	public static void main(String args[])
+	{
+		int num1, num2;
+		String result;
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("정수 두개를 입력하시오");
+		num1 = sc.nextInt();
+		num2 = sc.nextInt();
+		
+		System.out.println("max : " + ((num1>num2)?num1:num2) );
+		
+		result = (num1>num2)?("최대는 앞의 수"):(num1==num2?"두 수는 동일":"최대는 뒤의 수");		//조건연산자 안에 다시한번 조건연산자를 넣는다
+		System.out.printf("입력하신 두 수는 %d, %d이며, %s입니다.\n", num1, num2, result);
+		
+	}
+}
