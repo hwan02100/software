@@ -1,0 +1,32 @@
+//for문 테스트
+
+class ForTest1
+{
+	public static void main(String args[])
+	{
+/*		
+	//Hello, world! 10번 출력	
+		for(int i=0;i<10;i++)
+			System.out.println("Hello, world!");
+	//	System.out.println(i);	//i는 for문안에서만 유효하기때문에, Compile Error라고 뜬다
+	
+	//* 10개 출력	
+		for(int i=0;i<10;i++)
+			System.out.print("*");
+		System.out.println();
+		
+	//*를 세로로 10개 출력
+		for(int i=0;i<10;i++)
+			System.out.println("*");
+		System.out.println();
+*/
+
+	//*울 가로로 10개, 세로로 5줄
+		for(int j=0; j<5; j++)
+		{
+			for(int i=0;i<10;i++)
+				System.out.print("*");
+			System.out.println();
+		}
+	}
+}
