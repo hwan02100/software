@@ -1,0 +1,143 @@
+import java.util.Scanner;
+
+class ForTest2
+{
+	public static void main(String args[])
+	{
+		Scanner sc = new Scanner(System.in);
+		
+/*	
+	//1~10까지 출력하기
+		for(int i=0; i<10; i++)
+			System.out.print(i+1 + " " );
+*/		
+	
+/*	
+	//구구단 출력하기
+		System.out.println("출력할 단 : ");
+		int num = sc.nextInt();
+		
+		System.out.printf("----%d단----\n", num);
+		for(int i=1; i<10; i++)
+		{
+			System.out.printf("%d X %d = %2d\n", num, i, num*i);
+		}
+*/	
+	
+/*	
+	//1~10까지의 합 구하기
+		int sum=0;
+		for(int i=0; i<=10; i++)
+			sum += i;
+		System.out.printf("1에서 10까지의 합 : %d\n", sum);
+*/
+		
+/*	
+	//n!구하기(overflow 발생시점파악)
+		System.out.print("n : ");
+		int n = sc.nextInt();
+		int result=1;
+		int tmp;
+		
+		for(int i=1; i<=n; i++)
+		{
+			tmp = result;
+			result *= i;				//result 값 자체에 int범위를 벗어나는 값은 저장이 안된다
+			if(result/i == tmp)
+				continue;
+			else
+			{
+				System.out.printf("overflow가 발생 : %d지점에서\n", i);
+				return;
+			}
+		}
+		
+		System.out.printf("%d!의 값 = %d\n", n, result);
+*/
+		
+/*		
+	//약수 출력하기
+		for(int i=1; i<=10; i++)
+		{
+			System.out.printf("%2d의 약수는 ", i);
+			for(int j=1; j<=i; j++)
+			{
+				if(i%j==0)
+					System.out.print(j + " ");
+			}
+		}
+*/	
+
+
+	//패턴출력
+		int type, dan;
+		System.out.print("뭐를 출력할까?(1.직각삼각형 2.피라미드)");
+		type = sc.nextInt();
+		System.out.print("몇 단으로 : ");
+		dan = sc.nextInt();
+		
+		switch(type)
+		{
+			case 1: 
+				//1사분면이 비워져있는 직각삼각형
+					for(int i=1; i<=dan; i++)
+					{
+						for(int j=1; j<=i; j++)
+						{
+							System.out.print("*");
+						}
+						System.out.println("");
+					}
+				
+				
+				/*
+				//2사분면이 비워져있는 직각삼각형
+					for(int i=1; i<=dan; i++)
+					{
+						for(int j=1; j<=dan-i; j++)
+							System.out.print(" ");		//일단 줄에있는 빈칸
+						for(int j=1; j<=i; j++)
+							System.out.print("*");		//그리고 뒤쪽에 있는 *
+						System.out.println("");			//한 줄 띄우고			
+					}
+				*/
+				
+				/*
+				//3사분면이 비워져있는 직각삼각형
+					for(int i=1;i<=dan; i++)
+					{
+						for(int j=1; j<i; j++)
+							System.out.print(" ");
+						for(int j=1; j<=dan-i+1; j++)
+							System.out.print("*");
+						System.out.println();			
+					}
+				*/	
+				
+				/*
+				//4사분면이 비워져있는 직각삼각형
+					for(int i=1; i<=dan; i++)
+					{
+						for(int j=1; j<=dan-i+1; j++)
+							System.out.print("*");
+						for(int j=1; j<i; j++)
+							System.out.print(" ");
+						System.out.println();
+					}
+				*/
+				break;
+			
+			case 2: 
+				//피라미드
+				for(int i=1; i<=dan; i++)
+				{
+					for(int j=1; j<=dan-i; j++)
+						System.out.print(" ");		//일단 줄에있는 빈칸
+					for(int j=1; j<=2*i-1; j++)
+						System.out.print("*");		//그리고 뒤쪽에 있는 *
+					System.out.println();	
+				}
+				break;
+		}
+	}
+}
