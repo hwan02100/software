@@ -1,0 +1,68 @@
+//사용자에게 반지름을 입력받아 원의 넓이와 둘레 계산
+import java.util.Scanner;
+//java.lang.String
+//java.lang.System
+//java.lang.Math		
+//java.lang 패키지(=폴더)는 굳이 import하지 않아도 사용이 가능하다
+
+//내꺼
+class Circle
+{
+	public static void main(String []args)
+	{
+		double radius;
+		
+		Scanner sc = new Scanner(System.in);
+	/*	
+		System.out.print("원의 반지름 : ");
+		radius = sc.nextDouble();
+		
+		System.out.printf("원의 넓이 : %f, 원의 둘레 : %f\n", 3.14*radius*radius, 2*3.14*radius);
+		System.out.printf("원의 넓이 : %f, 원의 둘레 : %f\n", Math.PI*radius*radius, 2*Math.PI*radius);
+		System.out.printf("원의 넓이 : %f, 원의 둘레 : %f\n\n", Math.PI*Math.pow(radius,2), 2*Math.PI*radius);
+	*/	
+		System.out.print("\n[Math함수 실험]\n");
+		System.out.printf("sin(0) = %.2f, cos(0) = %.2f, cos(π) = %.2f\n", Math.sin(0), Math.cos(0), Math.cos(Math.PI) );
+		
+		System.out.println("cos(0) : " + Math.cos(0) );		//여기서 +는 연결시킨다는 의미
+													//대신 서식 지정을 못하기 때문에 소수점 몇째자리까지 출력 그런거 없다
+															
+		System.out.println("cos(0) : " + Math.cos(0) + ",  cos(π) : " + Math.cos(Math.PI) + "\n" );				
+		
+		System.out.printf("랜덤넘버 : %f\n", Math.random() );
+		//random을 사용하면 0이상 1미만의 실수형 난수가 생성된다
+		
+		//0이상 10미만의 실수형 난수를 생성해 보자 : 방법은 많다 - 캐스팅, Math의 버림
+			//캐스팅 : 자료형을 변환하는 것
+			//double d = 3.94
+			//int a = (int)d 로 하면 다 짤려나가고 3만 남는다
+		System.out.printf("0이상 10미만의 실수형 난수 : %f\n", Math.random()*10 );
+		
+		//0이상 10이하의 정수형 난수
+		System.out.printf("0이상 10이하의 정수형 난수 : %d\n", (int)(Math.random()*11));
+		
+		//11이상 23이하의 정수형 난수
+		System.out.printf("11이상 23이하의 정수형 난수 : %d\n\n", (int)(Math.random()*13)+11);
+		
+		System.out.println("[Boolean 함수 실험]");
+		System.out.println("3>4의 결과는 : " + (3>4) );
+		System.out.println("0=0의 결과는 : " + (0==0) );
+	}
+}
+
+//교수님꺼
+/*
+class CircleTest
+{
+	public static void main(String [] args)
+	{
+			double radius;
+			Scanner s = new Scanner(System.in);
+			
+			System.out.print("원의 반지름 : ");
+			radius = s.nextDouble();
+			
+			System.out.format("반지름이 %.2f인 원의 둘레는 %.2f이고, 넓이는 %.2f입니다.\n", radius, radius*2*3.14, radius*radius*3.14);
+	}
+}
+*/
