@@ -1,0 +1,38 @@
+//java Day03-06 53페이지 [입력한 달에 존재하는 날의 수 출력 코드]
+//지난 시간 마지막에 한 calender는 내가 한거고 이건 교수님이 하신거
+
+import java.util.Scanner;
+
+class DaysInMonth
+{
+	public static void main(String args [])
+	{
+		Scanner sc = new Scanner(System.in);
+		int year, month, days = 31;
+		
+		System.out.print("몇 년 : ");
+		year = sc.nextInt();
+		System.out.print("몇 월 : ");
+		month = sc.nextInt();
+		
+		switch(month)
+		{
+			case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+				break;												//어차피 days=31로 초기화를 했으니 따로 뭐 할게 없다
+			case 4: case 6: case 9: case 11:
+				days = 30;
+				break;
+			case 2: 				//윤년인 경우 = 29일, 윤년 = 400의 배수 또는 4의 배수인데, 100의 배수는 아닌 경우
+				if(year%400==0 || (year%4==0 && year%100 != 0))
+					days = 29;
+				else 
+					days = 28;
+				break;				//switch 문 종료시에 사용
+			default:
+				System.out.println("[입력오류] 달은 1월~12월까지만 유효합니다");
+			//	return				//이게 우리가 보통 쓰는거 (함수종료)
+				System.exit(0);		//요렇게 해도 된다 (프로그램종료)
+		}
+		System.out.format("%d년 %d월 : %d까지 존재\n", year, month, days);
+	}
+}
