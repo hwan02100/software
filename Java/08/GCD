@@ -1,0 +1,45 @@
+//java Day03-06 77페이지 최대공약수 예제
+
+import java.util.Scanner;
+
+class GCD		//Greatest Common Divisor
+{
+	public static void main(String args[])
+	{
+		Scanner sc = new Scanner(System.in);
+		int x,y,r;
+		
+		System.out.print("정수 1 : ");
+		x = sc.nextInt();
+		
+		System.out.print("정수 2 : ");
+		y = sc.nextInt();
+		
+		if(x<y)
+		{
+			int tmp;
+			tmp = x;
+			x = y;
+			y = tmp;
+		}
+	/*	
+		while(true)
+		{
+			r = x%y;
+			x = y;
+			y = r;
+			
+			if(y==0)
+				break;			
+		}
+	*/
+
+		while(y != 0)
+		{
+			r = x%y;
+			x = y;
+			y = r;
+		}
+		System.out.printf("최대공약수는 %d입니다\n", x);
+	}
+}
