@@ -1,0 +1,23 @@
+import java.io.File;		//이게 있어줘야 컴파일 오류가 안난다
+
+class FileTest
+{
+	public static void main(String args[])
+	{
+		//File 폴더 = new File("경로");
+		//File javaFolder = new File("C:\Program Files\Java");		//이거 파일경로에 백슬래쉬(\)있으니까 \P 이렇게 인식할 수있으니 하나 더 적어주자
+		
+		File javaFolder = new File("C:\\Program Files\\Java");		//이거는 절대경로
+		//File eatTest = new File("EatTest.java");					//FileTest가 존재하는 폴더에서 따지면 상대경로
+		File eatTest = new File("병아리\\EatTest.class");
+		
+		System.out.println("실제로 존재하는 파일? " + javaFolder.exists());
+		System.out.println("파일 크기? " + javaFolder.length());
+															//위의 exists하고 length는 꼭 알아놓자
+		System.out.println("폴더? " + javaFolder.isDirectory());
+		System.out.println("파일? " + javaFolder.isFile());
+		System.out.println("절대경로? " + javaFolder.isAbsolute());
+
+		System.out.println("eatTest의 절대경로 : " + eatTest.getAbsolutePath());
+	}
+}
