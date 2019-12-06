@@ -1,0 +1,52 @@
+/*
+java ReplaceFile 원본파일 대체파일 구단어 신단어
+예시 - java ReplaceFile CopyFile.java Replace.java System.out 모니터
+*/
+
+import java.util.Scanner;
+import java.io.*;
+
+class ReplaceFile_professor
+{
+	public static void main(String args[])
+	throws FileNotFoundException
+	{
+		if(args.length<4)
+		{
+			System.out.println("Usage : java ReplaceFile 원본파일 대체파일 구단어 신단어");
+			return;
+		}
+	
+		File original = new File(args[0]);
+		File copy = new File(args[1]);
+
+		//if(original.exist() == false)
+		if(!original.exists())
+		{
+			System.out.printf("\"%s\" 파일이 존재하지 않아 프로그램을 종료합니다 \n", original.getName());
+			return;
+		}
+		
+		if(copy.exists())
+		{
+			System.out.printf("\"%s\" 파일이 이미 존재하여 프로그램을 종료합니다 \n", copy.getName());
+			return;
+		}
+		
+		Scanner sc = new Scanner(original);
+		PrintWriter pw = new PrintWriter(copy);
+		
+		while(sc.hasNext())
+		{
+			
+			pw.println(sc.nextLine().replaceAll(args[2], args[3]));
+			
+		}
+		
+		sc.close();
+		pw.close();
+		
+		System.out.printf("파일 복사가 완료! \"%s\"파일을 확인바랍니다 \n", copy.getName());
+	}
+}
+
