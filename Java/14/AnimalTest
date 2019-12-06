@@ -1,0 +1,171 @@
+// 1. Fish, Lion, Bird : move()메소드 - 나는 움직입니다
+/*
+필드추가
+	Fish : 나이, 이름, 어종
+	Lion : 나이, 이름, 사는곳
+	Bird : 나이, 이름, 날개색상
+	
+	3개의 필드를 모두 초기화시키는 생성자 작성
+*/
+// 2. 생성자 : 각 클래스에서 디폴트 생성자 작성
+// 예 : Animal 클래스의 생성자 : "동물생성"
+// 예 : Lion 클래스의 생성자 : "사자 한마리 생성"
+
+
+class Animal
+{
+	int age;
+	String name;
+	
+	void move()
+	{
+	//	System.out.printf("나는 %s : 움직입니다", this.getClass());		//이렇게 하면 출력이
+															//나는 class Fish : 움직입니다 
+															//이런식으로 된다
+		System.out.printf("나는 %s : 움직입니다", this.getClass().getName());	//이렇게하면 위의 출력에서 class 빼고 이름만 출력		
+	}
+	
+	Animal()
+	{
+		System.out.println("동물 생성");
+	}
+	
+	Animal(int age, String name)
+	{
+		this.age = age;
+		this.name = name;
+	}
+}
+
+
+
+
+
+class Fish extends Animal
+{
+	String type;
+	
+	Fish()
+	{
+		//항상 어떤 생성자가 호출되면 맨 윗줄에 부모클래스의 생성자가 호출되어야 함.
+		//부모 클래스의 생성자를 호출하지 않는다면 자동적으로 부모클래스의 디폴트 생성자가 호출된다
+	//	Animal();
+	//이렇게 부모클래스를 하나 호출해줘야하는데 누가 부모님 이름 함부로 부르래?
+		super();		//super라고 부르렴		
+		System.out.println("물고기 한마리 생성");
+	}
+	
+	Fish(int age, String name, String type)
+	{
+	/*	
+		this.age = age;			//이렇게 하면 안됨
+		this.name = name;			//부모클래스에서 선언한 필드는 부모클래스에서 초기화하도록 해야함
+								//한마디로 저기 위에 Animal클래스로 가서 초기화
+	*/	
+	//	Animal(age,name);			//부모님 이름 함부로 부르지 말라고 했지?
+		super(age,name);
+		this.type = type;
+		System.out.printf("나이 : %d세, 어종 : %s, 이름 : %s인 물고기 생성\n", age, type, name);
+	}
+	
+	//중복정의 : overload
+	//재정의 : override = 부모클래스로부터 물려받은 메소드를 자식클래스에 맞게 수정
+	@Override	//필수는 아니지만 재정의 할때는 써주자(이유는 아래쪽)
+	void move()
+	{
+		super.move();		//이건 부모클래스내용 그대로 사용하고 내가 추가할때
+		System.out.println("==>나는 수영합니다");
+	}
+	
+	//toString() 재정의 : 어종, 이름, 나이 정보 반환하도록 재정의
+	@Override
+	public String toString()		//toString은 매개변수가 없다
+							//public 빠뜨리면 안됨
+							//부모클래스보다 자식클래스의 접근지정자가 커지는건 괜찮지만
+							//좁아지는건 FAIL
+	{
+		return String.format("어종이 %s, 나이가 %d, 이름이 %s인 물고기", type, age, name);
+	}
+}
+
+
+
+
+class Lion extends Animal
+{
+	String address;
+	
+	Lion()
+	{
+		System.out.println("사자 한마리 생성");
+	}
+	
+	Lion(int age, String name, String address)
+	{
+		super.age = age;
+		super.name = name;
+		this.address = address;
+	}
+	
+	//Lion move() 재정의 : 나는 달립니다
+	//@Override		//이거 굳이 없어도 됨
+					//근데 만약에 내가 혹시나 move()가 아니라 mive 이렇게 오타를 쳤다고 치자
+					//그때 @Override가 없으면 그냥 출력이 안되지만
+					//이게 있으면 컴파일에서 이거 잘못쳤다고 에러가 뜬다(알려준다)
+	void move()
+	{
+		System.out.println("==>나는 달립니다");
+	}
+}
+
+
+
+
+class Bird extends Animal
+{
+	String color;
+	
+	Bird()
+	{
+		System.out.println("새 한마리 생성");
+	}
+	
+	Bird(int age, String name, String color)
+	{
+		super.age = age;
+		super.name = name;
+		this.color = color;
+	}
+	
+	//Bird move() 재정의 : 나는 움직입니다 ==> 나는 날아다닙니다
+	@Override
+	void move()
+	{
+		super.move();
+		System.out.println("==>나는 날아다닙니다");
+	}
+}
+
+
+
+
+class AnimalTest
+{
+	public static void main(String args[])
+	{
+		
+		Fish f = new Fish(5, "니모", "금붕어");
+		System.out.println(f.getClass());			//getClass선언을 안했지만 컴파일&출력된다
+											//f객체가 어떤 클래스로부터 생성되었는지 반환
+		System.out.println(f.toString());			//toString도 마찬가지
+		f.move();
+	/*	
+		Lion l = new Lion();
+		l.move();
+		
+		Bird b = new Bird();
+		b.move();
+	*/
+
+	}
+}
