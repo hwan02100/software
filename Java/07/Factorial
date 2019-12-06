@@ -1,0 +1,29 @@
+//java Day03-06 63페이지 팩토리얼
+//교수님버전
+
+import java.util.Scanner;
+
+class Factorial
+{
+	public static void main(String args[])
+	{
+		int n, fact=1, preFact = fact;
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("n : ");
+		n = sc.nextInt();
+		
+		for(int i=1; i<=n; i++)
+		{
+			fact *= i;	//fact = fact*i
+			if(fact/i != preFact)
+			{
+				System.out.printf("%d!을 구하는 과정에서 overflow 발생", i);
+				return;
+			}
+			preFact = fact;
+		}
+		
+		System.out.printf("%d\n", fact);
+	}
+}
