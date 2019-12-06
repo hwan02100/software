@@ -1,0 +1,39 @@
+class Bag
+{
+	protected String brand;
+	protected int BagNum;
+	protected String color;
+	static protected int num=0;
+	Bag(){}
+	
+	Bag(String brand, int BagNum, String color)
+	{
+		this.brand = brand;
+		this.BagNum = BagNum;
+		this.color = color;
+		num++;
+	}
+	
+	public boolean eqauls(Object o)
+	{
+		if(this.BagNum==((Bag)o).BagNum && this.brand.equals(((Bag)o).brand) )
+			return true;
+		else
+			return false;
+	}
+}
+
+class Test6
+{
+	public static void main(String args[])
+	{
+		Bag b1 = new Bag("a", 1, "빨강");
+		Bag b2 = new Bag("b", 2, "주황");
+		Bag b3 = new Bag("c", 3, "노랑");
+		Bag b4 = new Bag("d", 4, "검정");
+		Bag b5 = new Bag("d", 4, "하양");
+		
+		System.out.println("생성된 가방의 개수 : " + Bag.num);
+		System.out.println("b4와 b5는 같은 가방? : " + b4.equals(b5));
+	}
+}
