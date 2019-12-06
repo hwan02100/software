@@ -1,0 +1,70 @@
+// 1. Fish, Lion, Bird : move()메소드 - 나는 움직입니다
+// 2. 생성자 : 각 클래스에서 디폴트 생성자 작성
+// 예 : Animal 클래스의 생성자 : "동물생성"
+// 예 : Lion 클래스의 생성자 : "사자 한마리 생성"
+class Animal
+{
+	void move()
+	{
+		System.out.println("나는 움직입니다");
+	}
+	
+	Animal()
+	{
+		System.out.println("동물 생성");
+	}
+}
+
+class Fish extends Animal
+{
+	Fish()
+	{
+		//항상 어떤 생성자가 호출되면 맨 윗줄에 부모클래스의 생성자가 호출되어야 함.
+		//부모 클래스의 생성자를 호출하지 않는다면 자동적으로 부모클래스의 디폴트 생성자가 호출된다
+	//	Animal();
+	//이렇게 부모클래스를 하나 호출해줘야하는데 누가 부모님 이름 함부로 부르래?
+		super();		//super라고 부르렴		
+		System.out.println("물고기 한마리 생성");
+	}
+}
+
+class Lion extends Animal
+{
+	Lion()
+	{
+		System.out.println("사자 한마리 생성");
+	}
+}
+
+class Bird extends Animal
+{
+	Bird()
+	{
+		System.out.println("새 한마리 생성");
+	}
+}
+
+class AnimalTest
+{
+	public static void main(String args[])
+	{
+		
+	//2.	
+		Fish f = new Fish();
+	/*
+		Lion l = new Lion();
+		Bird b = new Bird();
+	*/	
+		
+	/*	
+	//1.
+		f.move();
+		l.move();
+		b.move();
+	*/	
+		
+		
+		
+		
+	}
+}
