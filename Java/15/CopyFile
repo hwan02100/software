@@ -1,0 +1,56 @@
+/*
+파일복사 프로그램
+java CopyFile 원본파일명 복사본파일명
+
+- 테스트는 WriteTest.java 복사하기
+- main()의 인자가 2개 미만인 경우 프로그램 종료
+- 원본파일이 존재하지 않는다면 프로그램 종료
+- 복사본파일이 이미 존재하면 프로그램 종료
+- 복사 완료후에는 콘솔에 "복사완료. **복사본파일을 확인하세요" 문장 출력
+*/
+
+import java.util.Scanner;
+import java.io.*;
+
+class CopyFile
+{
+	public static void main(String args[])
+	throws FileNotFoundException
+	{
+		if(args.length<2)
+		{
+			System.out.println("Usage : java CopyFile 원본파일명 복사본파일명");
+			return;
+		}
+	
+		File original = new File(args[0]);
+		File copy = new File(args[1]);
+
+		//if(original.exist() == false)
+		if(!original.exists())
+		{
+			System.out.printf("\"%s\" 파일이 존재하지 않아 프로그램을 종료합니다 \n", original.getName());
+			return;
+		}
+		
+		if(copy.exists())
+		{
+			System.out.printf("\"%s\" 파일이 이미 존재하여 프로그램을 종료합니다 \n", copy.getName());
+			return;
+		}
+		
+		Scanner sc = new Scanner(original);
+		PrintWriter pw = new PrintWriter(copy);
+		
+		while(sc.hasNext())
+		{
+			pw.println(sc.nextLine());
+		}
+		
+		sc.close();
+		pw.close();
+		
+		System.out.printf("파일 복사가 완료! \"%s\"파일을 확인바랍니다 \n", copy.getName());
+	}
+}
+
