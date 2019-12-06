@@ -1,0 +1,39 @@
+/*
+class Calculator
+{
+	void add(int... a)		
+	{
+		int sum=0;
+		
+		for(int x: a)		
+		{
+			sum += x;			
+		}
+		System.out.println(sum);
+	}
+	public static void main(String [] args)
+	{
+		add(0,4);
+		add(0, 100, 12, 3, 4, 5, 6, 4);
+	}
+}						//이렇게 하면 non-static 어쩌고 하면서 오류가뜬다
+						//그럼 static 붙여줘보자
+*/
+class Calculator
+{
+	static void add(int... a)		
+	{
+		int sum=0;
+		
+		for(int x: a)		
+		{
+			sum += x;			
+		}
+		System.out.println(sum);
+	}
+	public static void main(String [] args)
+	{
+		add(0,4);							//static 메소드에서 non-static멤버 접근불가
+		add(0, 100, 12, 3, 4, 5, 6, 4);
+	}
+}
