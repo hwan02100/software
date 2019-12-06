@@ -1,0 +1,86 @@
+//java Day03-06 90페이지 continue 예제
+
+import java.util.Scanner;
+
+class FindN
+{
+	public static void main(String args[])
+	{
+		
+/*		
+		Scanner sc = new Scanner(System.in);
+		String input;							//input의 1번째 문자 = input.charAt(0)
+											//input의 i번째 문자 = input.charAt(i-1)
+		int count=0;
+		
+		System.out.print("단어 또는 문장 : ");
+		input = sc.nextLine();					//sc.next() 는 공백 전까지만 입력받고
+											//sc.nextLine() 은 전부 입력받는다
+
+*/											
+	/*	
+		for(int i=0; i<input.length(); i++)		//문자열의 길이 = input.length()
+											//비교 :	배열의 길이 = 배열명.length -> 괄호가 없음
+											// 		문자열의 길이 = 문자열이름.length() -> 괄호가 있음
+		{
+			if(input.charAt(i) != 'n')
+				continue;
+			count++;
+			System.out.printf("%d번째\n", i+1);
+		}
+		
+		System.out.printf("입력하신 문장에서 'n'의 개수는 %d개입니다\n", count);
+	*/
+	
+	/*
+		for(int i=0; i<input.length(); i++)
+		{
+			if(input.charAt(i) == 'n')
+			{
+				System.out.print(i + 1 + "번째, ");
+				count++;
+			}
+		}			
+			
+		if(count>0)
+			System.out.printf("\b\b에서 n이 발견되었습니다.(총 %d회). \n", count);
+		else
+			System.out.printf("문장에는 n이 없습니다.\n");
+	*/		
+		
+	//찾을 문자도 입력받아서 실행	
+		Scanner sc = new Scanner(System.in);
+		String input;							//input의 1번째 문자 = input.charAt(0)
+											//input의 i번째 문자 = input.charAt(i)
+		int count=0;
+		
+		System.out.print("단어 또는 문장 : ");
+		input = sc.nextLine();					//sc.next() 는 공백 전까지만 입력받고
+											//sc.nextLine() 은 전부 입력받는다
+											
+		System.out.print("찾을 문자 : ");
+		char keyword = sc.nextLine().charAt(0);
+		
+		//input의 i번째 문자 = input.charAt(i)
+		
+		for(int i=0; i<input.length(); i++)
+		{
+			if(input.charAt(i) == keyword)
+			{
+				System.out.print(i + 1 + "번째, ");
+				count++;
+			}
+		}			
+			
+		if(count>0)
+			System.out.printf("\b\b에서 %c이 발견되었습니다.(총 %d회). \n", keyword, count);
+		else
+			System.out.printf("문장에는 %c이 없습니다.\n", keyword);
+		
+		
+		
+		
+		
+		
+	}
+}
