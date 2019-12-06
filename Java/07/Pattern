@@ -1,0 +1,67 @@
+//java Day03-06 70페이지 패턴출력
+//교수님버전
+
+import java.util.Scanner;
+
+class Pattern
+{
+	public static void main(String args[])
+	{
+		if(args.length<1)
+		{
+			System.out.println("[사용법] java Pattern 피라미드층수");
+			return;
+		}
+		int layer = Integer.parseInt(args[0]);
+		/*
+			피라미드의 첫 공백 : n-1-i
+			피라미드의 * 개수 : 2i + 1
+		*/
+	/*	
+		for(int i=0; i<layer; i++)
+		{
+			//i층 출력
+			//공백출력 : n-1-i번
+			for(int j=0; j<layer-1-i; j++)
+				System.out.print(" ");
+			
+			//별 출력
+			for(int j=0; j<2*i+1; j++)
+				System.out.print("*");
+			
+			System.out.println();
+		}
+	*/
+
+	//역피라미드도 만들어보자
+	
+		//이건 내꺼
+		/*
+		for(int i=0; i<layer; i++)
+		{
+			//공백출력 : layer-i
+			for(int j=0; j<i; j++)
+				System.out.print(" ");
+			
+			//*출력 : 2*(layer-1-i)+1
+			for(int j=0; j<2*(layer-i-1)+1; j++)
+				System.out.print("*");
+			
+			System.out.println();
+		}
+		*/
+		
+		//이건 교수님꺼
+		for(int i=0; i<layer; i++)
+		{
+			for(int j=0; j<i; j++)
+				System.out.print(" ");
+			
+			for(int j=0; j<2*layer-2*i-1; j++)
+				System.out.print("*");
+			
+			System.out.println();
+		}
+		
+	}
+}
