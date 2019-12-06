@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+class Test02
+{
+	public static void main(String args[])
+	{
+		Scanner sc = new Scanner(System.in);
+		double num;
+		int deci;
+		int abs;
+		
+		System.out.println("실수 : ");
+		num = sc.nextDouble();
+		deci = (int)num;
+		System.out.printf("입력한 값의 정수 부분 : %d\n", deci);
+		
+		if((deci&0x80000000)==0x80000000)	//여기서 deci>>31로 하면 안된다
+							//왜냐하면 >>는 MSB를 따라서 채워지기 때문에 >>31의 결과가
+							//1111.....11_이 되어버린다
+							//양수는 ㄱㅊ
+		{
+			abs = -deci;
+			System.out.print("입력한 값은 음수\n");
+		}
+		else
+		{
+			abs = deci;
+			System.out.print("입력한 값은 양수\n");
+		}
+		
+	System.out.printf("정수 부분의 절댓값(%d)을 16으로 나눈 나머지 : %d", abs, abs&0x0000000f);
+		
+	}
+}
