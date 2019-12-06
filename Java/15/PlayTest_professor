@@ -1,0 +1,61 @@
+//java_Day14 10페이지 _ 교수님버전
+
+class Conductor
+{
+	void direct(Player [] players)	//연주자들을 한번에 묶기(grouping)
+								//이 grouping이 상속의 가장 큰 장점
+	{
+		for(Player p:players)
+			p.play();				//여러명의 연주자들에게 연주해달라 부탁
+	}
+}
+
+class PlayTest_professor
+{
+	public static void main(String args[])
+	{
+		Conductor c = new Conductor();
+		Player [] players = {new Pianist(), new Cellist(), new Violinist(), new Pianist(), new Cellist(), new Violinist(), new Cellist(), new Violinist(), new Pianist(), new Cellist(), new Pianist(), new Violinist() };
+		
+		c.direct(players);
+	}
+}
+
+class Player
+{
+	void play()
+	{
+		System.out.println("연주합니다.");
+	}
+}
+
+class Pianist extends Player
+{
+	@Override
+	void play()
+	{
+		System.out.print("피아노를 ");
+		super.play();
+	}
+}
+
+class Violinist extends Player
+{
+	@Override
+	void play()
+	{
+		System.out.print("바이올린을 ");
+		super.play();
+		System.out.println();
+	}
+}
+
+class Cellist extends Player
+{
+	@Override
+	void play()
+	{
+		System.out.print("첼로를 ");
+		super.play();
+	}
+}
