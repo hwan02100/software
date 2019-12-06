@@ -1,0 +1,46 @@
+class I
+{
+/*	
+	void eat(Hamburger h)
+	{
+		System.out.println(h.getClass().getName() + "를 먹습니다");
+	}
+	
+	void eat(Pizza p)
+	{
+		System.out.println(p.getClass().getName() + "를 먹습니다");
+	}
+	
+	voideat(IceCream ic)
+	{
+		System.out.println(i.getClass().getName() + "를 먹습니다");
+	}
+	//이거 음식 늘어나면 메소드를 밑도끝도없이 만들어야한다
+*/
+
+	void eat	(Food food)
+	{
+		System.out.println(food.getClass().getName() + "를 먹습니다");
+	}
+	// 이게 바로 상속의 장점
+}
+
+class Food{}
+class Hamburger extends Food{}
+class Pizza extends Food{}
+class IceCream extends Food{}
+class Hotdog extends Food{}
+class Ramen extends Food{}
+
+class EatTest
+{
+	public static void main(String args[])
+	{
+		I i = new I();
+		
+		Hamburger hamburger = new Hamburger();
+		i.eat(hamburger);
+		i.eat(new Pizza());
+		i.eat(new Bob());
+	}
+}		
