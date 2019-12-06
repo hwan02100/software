@@ -1,0 +1,35 @@
+//출력을 바로 하는게 아니라 
+//약간의 시간차를 두고 출력하고싶다
+
+class TreadTest
+{
+/*	
+	public static void main(String args[])
+	throws Exception			//예외를 던지겠다
+							//이러면 컴파일오류 안뜬다
+	{
+		for(int i=1; i<=10; i++)
+		{
+			System.out.print(i + " ");
+			Thread.sleep(1000);		//바로 출력하는 게 아니라 1000밀리세건드 뒤에 출력
+		}
+	}
+*/
+	
+	public static void main(String args[])
+	{
+		try
+		{
+			for(int i=1; i<=10; i++)
+			{
+				System.out.print(i + " ");
+				Thread.sleep(1000);		//바로 출력하는 게 아니라 1000밀리세건드 뒤에 출력
+			}
+		}
+		catch(Exception e)
+		{
+			System.out.println("예외 발생");
+		}
+	}
+		
+}
