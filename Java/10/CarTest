@@ -1,0 +1,165 @@
+//생성자 : 객체가 생성될 때 필드를 초기화하는 특별한 메소드
+/*
+	자동차클래스 필드 추가
+	브랜드
+	연식
+	색상
+	
+	생성자를 하나 만들자
+	브랜드와 연식을 받아 초기화하는 생성자
+*/	
+
+/*
+	메소드는 중복정의가 가능하다
+	이게 무슨말이냐하면
+	Car(int year);
+	Car(String brand, int year);
+	이거 두개가 별개로 작동한다. 밑에 다시 설명해줌
+*/
+
+/*
+	메소드 시그니쳐(signature) = 메소드 이름 + 매개변수
+	시그니쳐가 다른 함수는 정의 가능 : 즉, 이름이 같더라도 매개변수가 다르다면 중복정의 가능
+	메소드 중복정의 : method overloading
+	
+	근데 반환타입 다르고 매개변수 같은거는 안댐
+	void add(int a, int b)
+	int add(int a, int b)	이런거 안된다
+	
+	void add(int a, double b)
+	int add(int a, int b)	이거는 된다
+*/
+
+class Car
+{
+	private int mileage;		//주행거리
+							//UML보니까 앞에 -가 붙어있으니 private 붙여주자
+	private String brand;
+	private int year;
+	private String color;
+	
+	public void goStraight(int distance)		//직진하는 메소드
+	{
+		mileage += distance;
+		System.out.printf("%dm 직진했습니다\n", distance);
+	//	System.out.println(distance + "m 직진했습니다.");
+	}	
+	
+	public void turnLeft(){
+		System.out.print("우회전 후 ");
+	}
+	
+	public void turnRight(){
+		System.out.print("좌회전 후 ");
+	}
+
+	public int getMileage(){	
+		return mileage;		
+	}
+	
+	
+	
+	
+	
+	
+	Car(String brand, int year)
+	{
+		this.brand = brand;
+		this.year = year;
+		//color은 null값이 된다
+	}
+	
+	//브랜드, 연식, 색상을 받아 초기화하는 생성자
+	Car(String brand, int year, String color)
+	{
+	//	Car(brand, year);		//이건 좀 그렇다. 자기이름 자기가 안부르잖아	
+		this(brand, year);		//그러니 this()로 하자
+		this.color = color;
+	}
+	
+	//디폴트 생성자 : 매개변수가 하나도 없는 기본생성자
+	Car()
+	{
+		//2019년식 은색 벤츠 생성하고싶다
+	/*	
+		this.brand = "벤츠";
+		this.year = 2019;
+		this.color = "은색";			//이렇게 해도 되지만 위에 이미 만들어놨는데 그거 쓰자
+	*/	
+		this("벤츠", 2019, "은");
+	}
+	
+	//toString() 메소드를 만들어보자(좀 중요해서 앞으로 계속 나올거임)
+	//toString() 하는 일 = 객체의 정보를 문자열로 반환하는 메소드
+	//"이 자동차는 **년식 **색 **자동차입니다." 라는 문장을 반환하는 메소드
+	public String toString()		//public은 꼭 붙여줘야한다
+							//반환타입은 String
+							//매개변수 아무것도 필요없음
+	{
+	//	return "이 자동차는 " + this.year + "년식 " + color + "색 " + brand + "자동차입니다";
+		//솔직히 이거 너무 귀찮다
+		//그래서 format을 쓰자
+		return String.format("이 자동차는 %d년식 %s색 %s자동차입니다", year, color, brand);		//여기서 this.year, this.color, this.brand 해줘도 상관없다
+	}
+	
+	
+	
+	
+	
+	
+	
+	//add 메소드 : 두 정수를 매개변수로 받아 두 정수의 합을 반환하는 함수
+	int add(int a, int b)
+	{
+		return a+b;
+	}
+		
+	//add 메소드 : 세 정수를 매개변수로 받아 세 정수의 합을 반환하는 함수
+	int add(int a, int b, int c)
+	{
+	//	return a+b+c;				//물론 이렇게 해도 되기는 하지만
+	//	return add(a,b)+c			//요렇게 해도 된다
+		return this.add(a,b)+c;	//이것도 가능
+	}
+}
+
+class CarTest
+{
+	public static void main(String args[])
+	{
+		
+	/*	
+	//	Car myCar = new Car();	//이렇게 놔두면 컴파일에러난다
+		Car myCar = new Car("현대자동차", 2019);		//순서 맞춰서 적어주자
+									
+	
+		myCar.goStraight(25);		//25m 직진해라
+		myCar.turnLeft();
+		myCar.goStraight(30);
+		myCar.turnRight();
+		myCar.goStraight(15);
+		myCar.turnLeft();
+		myCar.goStraight(20);
+		System.out.println("총 주행거리는 " + myCar.getMileage() + "m 입니다");
+	*/
+		
+		
+		
+		Car myCar = new Car("현대", 2019);
+		System.out.println(myCar.toString());
+		
+		Car yourCar = new Car();
+		System.out.println(yourCar.toString());
+		System.out.println(yourCar);				//이게 바로 toString 메소드의 특이한 점
+											//객체를 출력해라 하면 그 객체의 toString() 메소드를 호출한 결과를 출력
+											
+											
+											
+		//3+4
+		System.out.println("3 + 4 = " + myCar.add(3,4) );
+		
+		//1+10+100
+		System.out.println("1 + 10 + 100 = " + myCar.add(1, 10, 100) );
+	
+	}	
+}
