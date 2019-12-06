@@ -1,0 +1,168 @@
+//강아지를 프로그램하시오	=	강아지를 설계하시오	=	강아지 클래스(객체의 설계도)를 만든다
+
+//강아지의 포만감이 낮으면 먹이를 주고, 높으면 놀아주는 프로그램을 작성할 것임
+/*
+속성(필드)
+	- 포만감
+	- 이름(꼭 필요는 없지만 있으면 좋겠지)
+행동(메소드)
+	- 먹이를 먹는다
+	- 논다
+*/
+
+class Dog		//필드 : 일반 변수가 아님, [메소드 안]이 아니라 [클래스 안]에 위치
+				//변수를 초기화하지 않아도 자료형에 맞는 0으로 자동 초기화된다
+				//필드의 변수를 외부에서 함부로 변경하지 못하도록 접근지시자를 private으로 설정한다
+				//근데 함부로 못고치는 건 좋은데 밖에서 얼마인지 알아보지도 못한다.
+				//getter()를 만들자
+{
+	private String name;	//이름	초기화하지 않았지만 null로 자동초기화된다
+	private int full;		//포만감	초기화하지 않았지만 0으로 자동초기화된다
+	private double weight; 		//얘는 0.0으로 자동초기화
+	private boolean die;			//false로 자동초기화
+	
+	//생성자 : 객체를 생성할때만 호출되는 특별한 메소드, 생성할 때 개체에 특성을 부여하는 일 
+	//특징 1 : 생성자의 이름은 클래스명과 일치
+	//특징 2 : 반환 타입이 없다(int나 void)
+	//이름, 포만감, 몸무게를 지정해서 생성하고 싶다
+	Dog(String name, int full, double weight)
+	{
+		this.name = name;
+		this.full = full;
+		this.weight = weight;
+		System.out.println("강아지 한마리 생성");
+	}
+
+	
+	
+	//getter : 외부에서 접근하지 못하는 필드(private 필드) 값을 알아내기 위한 메소드
+	//get필드명() 	형태는 이런식이다
+	//함수의 형태 : 	자료형  메소드이름(getName)  (매개변수들 : 함수가 일을 하기 위해서 필요한것들)
+	//			{
+				//	함수가 할일;
+				//	return 함수의 결과값;
+					//만약 이 return값이 존재하지 않으면 위의 함수명에 자료형 대신에 void를 쓴다
+	//			}	
+	
+	int getFull()	//full값이 얼마인지 알아내기 위한 메소드
+				//full의 자료형이 int니까 앞에 int 붙여줌
+	{
+		return full;
+	}
+	
+	String getName()
+	{
+		return name;
+	}
+	
+	double getWeight()
+	{
+		return weight;
+	}
+	
+	
+	
+	//setter : 외부에서 접근하지 못하는 필드(private 필드)값을 설정하기 위한 메소드
+	//set 필드명()
+	
+	void setName(String name)		//여기서는 이름을 받아줘야한다
+	{
+		this.name = name;			//앞의 name = 필드 네임
+								//뒤의 name = 매개변수 name
+								//this  = 이 클래스의 
+	}
+	
+	void setWeight(double weight)
+	{
+		if(weight <= 0 || weight > 100)
+			this.weight = 10;
+		else
+			this.weight = weight;
+	}
+	
+	void eat(int food)		//정수형으로 음식을 받아서 그만큼 포만감 증가시킴
+	{
+		full += food;		//full = full + food;
+		System.out.println(food + "만큼 먹어서 포만감이 " + full + "이 되었습니다. ");
+		System.out.println("마시?!");
+	}
+
+	void play()
+	{
+		System.out.println("재미있다~");
+	}
+}
+
+
+
+
+//강아지의 포만감이 5보다 작으면 먹이를 주고, 5보다 크면 놀아주는 프로그램을 작성
+class DogTest
+{
+	public static void main(String args[])
+	{
+		//강아지를 설계도에 따라 한마리 생성
+	/*	
+		Dog myDog = new Dog();		//[자료형] [이름] = new [클래스의 이름()]	
+									//아무것도 안적어넣어도 전부 0값으로 하나 생성자를 만들어준다
+		Dog yourDog = new Dog();		//근데 지금 위에서 생성자에 대한 걸 하나 만들었다
+									//그래서 이걸 그냥 놔두면 컴파일 에러난다
+	*/
+		
+		Dog myDog = new Dog("뽀삐", 5, 3.2);
+		Dog yourDog = new Dog("멍멍이", 10, 1.9);	//이렇게 해줘야한다.
+		
+	/*
+		System.out.println("강아지의 이름 : " + myDog.name);	//name이 누구의 name인지 명시를 꼭 해줘야한다
+													//main문에서는 name변수 선언이 안되어있기 때문
+													//참고로 name에 초기화안해도 자동초기화되어있어서 ㄱㅊ
+													
+		System.out.println("강아지의 포만감 : " + myDog.full);	//마찬가지로 누구의 full인지 말해줘야한다.
+	
+	
+		String rslt = (myDog.die==true)?"사망":"생존";
+		System.out.println("강아지의 생사여부 : " +  rslt);
+		
+		
+		myDog.die = true;								
+		rslt = (myDog.die==true)?"사망":"생존";				
+		System.out.println("강아지의 생사여부 : " +  rslt);		//외부에서 멋대로 바꾸면 안된다
+													//멀쩡히 살아있던 애가 갑자기 죽으면 안되지
+													//그러니까 class Dog의 변수들을 외부에서 건드릴 수 없게 만들자
+													//private를 붙여주면 됨
+													//그럼 이 부분 compile error 뜬다
+	*/
+		//private 때문에 싹다 컴파일오류 걸리니까 일단 다 주석처리해놓자
+	
+	//	myDog.play();		//이건 그냥 호출하면 됨
+	//	myDog.eat();		//이렇게 호출하면 안된다
+						//안에 int food 의 숫자를 입력해줘야한다
+	//	myDog.eat(10);	//이런식으로
+		
+	/*	
+		if(myDog.full<5)				//private 쓰는 순간 이것도 안됨
+			myDog.eat(5);				//한마디로 값이 얼마인지 알아볼수가 없음
+		else 
+			myDog.play();
+	*/
+	
+		if(myDog.getFull()	<5)			//요렇게 하면 ㅇㅋ!
+			myDog.eat(5);				
+		else 
+			myDog.play();
+		
+		System.out.println("강아지의 이름 : " + myDog.getName());
+		
+		myDog.setName("뽀삐");									//setter로 설정을 하고
+		System.out.println("강아지의 이름 : " + myDog.getName());		//getter로 읽어온다
+		
+		System.out.println("강아지의 포만감 : " + myDog.getFull());
+
+		myDog.setWeight(10);
+		System.out.println("강아지의 몸무게 : " + myDog.getWeight() + "kg");		//근데 여기에 몸무게가 -10으로 넣어도 출력이 된다
+																	//그러니 위의 class Dog 에 조건을 넣어주자
+		
+	
+	}
+}
+
