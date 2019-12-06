@@ -1,0 +1,146 @@
+import java.util.Scanner;
+
+class ArrayTest{
+	public static void main(String [] args){
+		double [] arr;
+		Scanner s = new Scanner(System.in);
+		int n;//로테이팅 횟수
+		System.out.print("배열 성분 개수: ");
+		arr = new double[s.nextInt()];
+		
+		initArr2(arr);//배열성분 초기화
+		printArr(arr);//배열성분 출력
+		System.out.printf("배열 성분의 합: %.2f\n", sumArr(arr));
+		System.out.printf("배열 성분의 최댓값: %.2f\n", maxArr(arr));
+		System.out.printf("최댓값의 인덱스: %d\n", indexOfMax(arr));
+		
+		shuffleArr(arr);
+		System.out.print("셔플 후 배열: ");
+		printArr(arr);
+		
+		rotateR1(arr);
+		System.out.print("오른쪽으로 한칸 로테이팅 후 배열: ");
+		printArr(arr);
+		
+		System.out.print("오른쪽 로테이팅 수: ");
+		n = s.nextInt();
+		
+		rotateRn(arr, n);
+		System.out.printf("오른쪽으로 %d 칸 로테이팅 후 배열: ", n);
+		printArr(arr);
+		
+		rotateL1(arr);
+		System.out.print("왼쪽으로 한칸 로테이팅 후 배열: ");
+		printArr(arr);
+		
+		System.out.print("왼쪽 로테이팅 수: ");
+		n = s.nextInt();
+		
+		rotateLn(arr, n);
+		System.out.printf("왼쪽으로 %d 칸 로테이팅 후 배열: ", n);
+		printArr(arr);
+	}
+	static void rotateLn(double [] arr, int n){//왼쪽으로 n 칸 로테이팅
+		int cnt = n%arr.length;
+		for(int i=0; i<cnt; i++)	rotateL1(arr);
+	}
+	
+	static void rotateL1(double [] arr){//왼쪽으로 한 칸 로테이팅
+		double tmp = arr[0];//첫번째 성분 피신
+		
+		//나머지는 로테이팅 시킴
+		for(int i=0;i<arr.length-1;i++)
+			arr[i]= arr[i+1];
+		
+		arr[arr.length-1] = tmp;
+	}
+	static void rotateRn(double [] arr, int n){//오른쪽으로 n 칸 로테이팅
+		int cnt = n%arr.length;
+		for(int i=0; i<cnt; i++)	rotateR1(arr);
+	}
+	
+	static void rotateR1(double [] arr){//오른쪽으로 1칸 로테이팅
+		double tmp = arr[arr.length-1];//마지막 성분 피신
+		
+		//나머지는 로테이팅 시킴
+		for(int i=arr.length-1;i>0;i--)
+			arr[i]= arr[i-1];
+		
+		arr[0] = tmp;
+	}
+	
+	
+	static void shuffleArr(double [] arr){
+		double tmp;
+		int r;
+		
+		for(int i=0; i<arr.length; i++){
+			//arr[i] <-> arr[r]
+			//r=??
+			r = (int)(Math.random()*arr.length); //0이상 arr.length-1이하의 정수
+			//arr[i] <-> arr[r]
+			tmp = arr[i]; 
+			arr[i] = arr[r];
+			arr[r] = tmp;
+		}
+	}
+	
+	
+	static int indexOfMax(double [] arr){
+		double max = arr[0];
+		int index = 0;
+		
+		for(int i=1; i<arr.length; i++){
+			if(max<arr[i]){
+				max = arr[i];
+				index = i;
+			}
+		}
+		
+		return index+1;	
+	}
+	
+	static double maxArr(double [] arr){
+		double max = arr[0];
+		
+		for(int i=1; i<arr.length; i++){
+			if(max<arr[i]){
+				max = arr[i];
+			}
+		}
+		
+		return max;
+	}
+	
+	static double sumArr(double [] arr){
+		double sum = 0;
+		
+		for(double d:arr){
+			sum += d;
+		}
+		
+		return sum;
+	}
+	
+	static void printArr(double [] arr){
+		for(double d:arr){
+			System.out.printf("%.2f\t", d);
+		}
+		System.out.println();
+	}
+	
+	static void initArr1(double [] array){
+		Scanner s = new Scanner(System.in);
+		for(int i=0; i<array.length; i++){
+			System.out.print(i+1+"번째 성분: ");
+			array[i] = s.nextDouble();
+		}
+	}
+	
+	static void initArr2(double [] arr){
+		for(int i=0; i<arr.length; i++){
+			arr[i] = Math.random()*10;
+		}
+	}
+	
+}
