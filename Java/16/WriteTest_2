@@ -1,0 +1,62 @@
+//사용자로부터 이름(공백없음)과 나이를 입력받아 그대로 출력하는 프로그램
+
+import java.io.*;
+import java.util.Scanner;
+//java WriteTest 출력할 파일명
+//해당 파일에 출력
+//사용자가 출력할 파일명을 입력하지 않는다면 도움말 띄우고 종료하기
+//만약 해당파일이 이미 존재한다면 "**파일이 이미 존재합니다." 오류문장 출력하고 종료
+
+class WriteTest_2
+{
+	public static void main(String args[])
+	throws Exception		//예외처리
+	{
+		//일단 java WriteTest args[0]의 인자부분에 뭐가 들어왔는지 아닌지 확인
+		if(args.length<1)
+		{
+			System.out.println("Usage : java WriteTest 출력할파일명");
+			return;
+		}
+		
+		//1. 파일 객체 생성
+		File f = new File(args[0]);
+		if(f.exists())
+		{
+			System.out.printf("\"%s\" 파일이 이미 존재하여 프로그램을 종료합니다 \n", f.getName());
+			return;
+		}
+
+		PrintWriter pw = new PrintWriter(f);
+		//2. 파일에 스트림 형성
+		//정확히 말하면 이 순간에 파일이 생성된다
+		
+		Scanner sc = new Scanner(System.in);
+		String name;
+		int age;
+		
+		System.out.print("이름 : ");
+		name = sc.next();
+		
+		System.out.print("나이 : ");
+		age = sc.nextInt();
+	/*	
+		//이건 모니터에 출력
+		System.out.printf("이름 = %s, 나이 = %d살", name, age);
+	*/	
+		
+		//3. 파일에 출력
+		pw.println("이름 : " + name);
+		pw.println("나이 : " + age);		//파일에 내용작성 완료
+		
+		//이렇게해서 컴파일해보면 폴더에 "학생정보.txt"라는 파일이 생성되어있다
+		//근데 들어가보면 아무것도 없다
+		//이 프로그램과 txt파일과 연결이 끊어지지 않아서, 다른 곳에서는 txt파일에 접근을 못하기 때문
+		//그러니 이 연결을 끊어줘야한다.
+		
+		//4. 파일 닫기
+		pw.close();		//이거 사소해보이지만 굉장히 중요!!!
+		
+		System.out.println("파일 작성 완료. " + f.getName() + "파일을 확인해주세요");
+	}
+}
