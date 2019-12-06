@@ -1,0 +1,95 @@
+//사람클래스
+//필드 : 이름, 나이
+//모든 필드를 초기화하는 생성자
+//사람 두명 생성
+
+class Person
+{
+	private String name;
+	private int age;
+	
+	Person(int age, String name)
+	{
+		this.age = age;
+		this.name = name;
+	}
+	
+	public String toString()
+	{
+		return String.format("%d세의 %s", age, name);
+	}
+	
+	//equals() : 동일한 객체인지 판단할 수 있도록 재정의
+
+/*	
+	//나이가 같으면 같은 사람으로 간주하도록 재정의
+	public boolean equals(Person p)		//Object 클래스에 있는건 항상 public	
+									//근데 사실 이건 재정의가 아니라 중복정의
+									//지금은 어쩔 수 없지만 만약 기말에서 이렇게 짜면 0점
+	{
+		//return p.age==this.age;
+		//이렇게 해도 되고 아니면
+		if(p.age==this.age)
+			return true;
+		else 
+			return false;
+	}
+*/
+
+/*
+	//나이와 이름이 같으면 같은 사람으로 간주하도록 재정의	
+	public boolean equals(Person p)
+	{
+		//return (p.age==this.age)&&(p.name==this.name);
+		if(p.age==this.age && p.name.equals(this.name))		//이름은 ==이 아니라 equals로 비교해야 한다
+														//조심!!
+			return true;
+		else 
+			return false;
+	}
+*/
+
+/*
+	//다형성
+	public boolean equals(Object o)
+	{
+		if( ((Person)o).age==this.age && ((Person)o).name.equals(this.name))		//o를 Person으로 캐스팅(다운캐스팅 : 물건을 사람으로 끌어내림)
+			return true;
+		else
+			return false;
+	}
+*/
+
+	public boolean equals(Object o)
+	{
+		//업캐스팅
+		//return p.age==this.age;
+		//o가 사람이라면 캐스팅해서 판단하고
+		//o가 사람이 아니라면 false 반환
+		if(o instanceof Person)	//o가 사람의 일종이라면
+			return ((Person)o).age==this.age && ((Person)o).name.equals(this.name);
+		else 
+			return false;
+	}
+}
+
+
+//돌 클래스
+//돌 생성 후 p1과 돌이 일치하는지 결과 출력
+class Stone{}
+
+class PersonTest
+{
+	public static void main(String args[])
+	{
+		Person p1 = new Person(50, "장발장");
+		Person p2 = new Person(50, "장발장");
+		Person p3 = new Person(7, "홍길동");
+		Stone s = new Stone();
+		System.out.println("p1과 돌 동일? " + p1.equals(s));			//컴파일은 되지만 실행이 안된다
+															//stone에는 equals메소드가 없기 때문
+		
+		System.out.println("p1, p2 동일인물? " + p1.equals(p2));
+		System.out.println("p2, p3 동일인물? " + p2.equals(p3));
+	}
+}
