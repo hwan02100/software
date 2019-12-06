@@ -1,0 +1,47 @@
+import java.util.Scanner;
+
+class Test04
+{
+	public static void main(String args[])
+	{
+		int wheel;
+		String color;
+		Scanner sc = new Scanner(System.in);
+		
+		//자전거 2대를 생성하는데, 각기 다른 생성자를 통해 생성(2점)
+		Bicycle B1 = new Bicycle();
+		Bicycle B2 = new Bicycle("초록색", 4);
+		
+		//그 후 toString()메소드를 호출하여 그 결과를 출력(2점)
+		System.out.println("첫번째 자전거 정보 : " + B1.toString());
+		System.out.println("두번째 자전거 정보 : " + B2);
+	}
+}
+
+class Bicycle
+{
+	private int wheel;
+	private String color;
+	
+	//파란색 2발 자전거를 생성하는 디폴트 생성자(2점)
+	Bicycle()
+	{
+		this("파란색", 2);
+	}
+	
+	//색상과 바퀴수를 매개변수로 받아 초기화하는 생성자(2점)
+	Bicycle(String color, int wheel)
+	{
+		this.color = color;
+		if(wheel<0 || wheel>10)
+			this.wheel = 2;
+		else
+			this.wheel = wheel;
+	}
+	
+	//자전거의 모든 정보를 문자열로 반환하는 toString() 메소드(2점)
+	public String toString()
+	{
+		return String.format("이 자전거는 %s %d발 자전거입니다", color, wheel);
+	}	
+}
