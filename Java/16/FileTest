@@ -1,0 +1,19 @@
+//import java.io.File;		//이게 있어줘야 컴파일 오류가 안난다
+import java.io.*;			//위에꺼보다 이게 훨씬 편함
+
+class FileTest
+{
+	public static void main(String args[])
+	{
+		File file1 = new File("C:\\Users\\김정환\\Desktop\\자바프로그래밍-계절\\수업16 - 01.17\\ABC\\HW3.java");			//절대경로
+		
+		File file2 = new File("ABC" + File.separator + "HW3.java");											//상대경로
+																									//File.separator가 백슬래쉬역할을 한다
+		
+		System.out.println("file2 존재? " + file2.exists());
+		System.out.println("file2의 이름? " + file2.getName());	//getName하면 파일 이름만 출력됨			-> HW3.java
+		System.out.println("file2의 이름? " + file2.toString());		//toString은 우리가 적은거 그대로 출력된다	-> ABC\HW3.java
+		System.out.println("file2의 이름? " + file2);				//toString은 생략이 가능하다
+		
+	}
+}
