@@ -1,0 +1,124 @@
+//커맨드라인에서 문자열을 입력받아서, 문자열들의 길이에 따른 오름차순으로 정렬할 것 
+//java StringTest1 an sjdfkl masdfl sdf an
+//an = args[0]
+//이걸 어떻게 하냐면
+//a an sdf sjdfkl masdfl	(만약 길이가 같으면 그냥 놔두기)
+class StringTest1
+{
+	public static void main(String args[])
+	{
+	/*	
+		//문자열의 길이는 args[0].length()같은 형식으로 알아낼 수 있다
+		int num_args;
+		num_args = args.length;
+		
+		int num[] = new int[num_args];
+		
+		for(int i=0; i < num_args; i++)
+		{
+			int tmp;
+			if( args[i].length() > args[i+1].length() )
+			{
+				tmp = args[i] 
+			}
+		}
+	*/
+	
+//추가로 알아놓자
+
+/*	
+	//equals
+		System.out.println("Hello".equals("HELLO"));				//false	
+	
+	//equalsIgnoreCase
+		System.out.println("Hello".equalsIgnoreCase("HELLO"));		//true
+		
+	//replaceAll	
+		String tmpp = "hi, world!";
+		tmpp.replaceAll("hi", "Hello");					//tmp라는 문자열에서 hi라는 문자열이 보이면 전부 Hello로 바꿔준다
+		System.out.println(tmpp);
+		System.out.println(tmpp.replaceAll("hi", "Hello"));		//이게 바꿔주기만 하지 tmpp에 저장하지는 않는다
+		
+	//compareTo	-> 음수냐 0이냐 양수냐만 따지면 됨
+	//사전식으로 정렬할 때 많이 쓴다
+		//s1 = abc;	s2 = def;
+		//s1.compareTo(s2) 를 하면 결과 = a-d = -3
+		
+		//s3 = abc;	s4 = aba;
+		//s3.compareTo(s4) 를 하면 결과 = c-a = 2
+		
+		//s5 = abcd;	s6 = abc;
+		//s5.compareTo(s6) 를 하면 결과 = d-0 => 1
+		
+		//s7 = abc; 	s8 = abcde;
+		//s7.compareTo(s8) 를 하면 결과 = 0- => -1
+		System.out.println("abc".compareTo("abd"));	//-1
+		System.out.println("abd".compareTo("abc"));	//+1
+												//compareTo를 해서 양수가 나왔을때만 바꿔치기해주면 사전식정렬이 가능
+	
+	//compareToIgnoreCase
+	//대소문자를 무시
+*/	
+	//substring(n)
+	//n+1번째 문자부터 마지막 문자까지 추출
+		String tmp = "hi, world!";
+		System.out.println(tmp.substring(4));		//world!만 추출
+	
+	//substring(a,b)
+	//a+1번째 문자부터 b까지 추출
+		
+		
+		
+/*		
+		if(args.length<1)
+		{
+			System.out.println("사용법 : java StringTest1 문자열1 문자열2 ... ");
+			return;
+		}
+		for(int i=0; i<args.length; i++)
+			System.out.print(args[i] + " ");		//문자열을 그대로 출력
+		System.out.println();
+		
+		
+	//오름차순으로 정렬 후 출력
+		
+		String tmp;		//바꿔치기하기 위한 준비
+											
+		for(int i=0; i<args.length-1; i++ )	// i는 첫번째부터 마지막 전까지만 가능하다
+										// j는 i 다음부터 마지막까지
+		{
+			for(int j=i+1; j<args.length; j++)
+			{
+				if( args[i].length() > args[j].length() )
+				{
+					tmp = args[i];
+					args[i] = args[j];
+					args[j] = tmp;
+				}
+			}
+		}
+		for(int i=0; i<args.length; i++)
+			System.out.print(args[i] + " ");		//바뀐 문자열을 출력
+		System.out.println();
+		
+		
+	//사전식정렬도 해보자
+		
+		for(int i=0; i<args.length-1; i++ )	
+		{									
+			for(int j=i+1; j<args.length; j++)		//여기서 만약에 대문자를 입력하면 아스키코드 상으로 대문자가 앞에 있기 때문에 대문자가 제일 먼저 나온다
+			{
+				if( args[i].compareToIgnoreCase(args[j])>0 )		//그러니 여기도 무시해주자
+				{
+					tmp = args[i];
+					args[i] = args[j];
+					args[j] = tmp;
+				}
+			}
+		}
+		for(int i=0; i<args.length; i++)
+			System.out.print(args[i] + " ");		//바뀐 문자열을 출력
+		System.out.println();
+*/		
+	}
+}
