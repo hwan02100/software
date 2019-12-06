@@ -1,0 +1,52 @@
+//java_Day14 10페이지 
+
+/*
+class Pianist
+{
+	void play()
+	{
+		System.out.println("피아노를 연주합니다");
+	}
+}
+
+class Violinist
+{
+	void play()
+	{
+		System.out.println("바이올린을 연주합니다");
+	}
+}
+
+class Cellist
+{
+	void play()
+	{
+		System.out.print("첼로를 연주합니다");
+	}
+}
+*/
+
+class Instrument{}
+class Pianist extends Instrument{}
+class Violinist extends Instrument{}
+class Cellist extends Instrument{}
+
+class Conductor
+{
+	void play(Instrument in)
+	{
+		System.out.println(in.getClass().getName() + "를 연주합니다");
+	}
+}
+
+class PlayTest
+{
+	public static void main(String args[])
+	{
+		Conductor c = new Conductor();
+		
+		c.play(new Pianist());
+		c.play(new Violinist());
+		c.play(new Cellist());
+	}
+}
