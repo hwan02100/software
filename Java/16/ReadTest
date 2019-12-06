@@ -1,0 +1,33 @@
+//파일 입력 : 파일로부터 자료를 읽어오는것
+//하고싶은 거 : abc.txt파일의 내용을 읽어와서 콘솔에 출력하기
+
+import java.util.Scanner;
+import java.io.*;
+
+class ReadTest
+{
+	public static void main(String args[])
+	{
+		File f = new File("abc.txt");
+		//1.파일객체 생성
+		
+		try		//Scanner 들어간 문장을 전부 포함시킴
+		{
+			//Scanner sc = new Scanner(System.in);	//System.in은 키보드에서 입력받는걸 의미
+			Scanner sc = new Scanner(f);			//우린 파일로부터 입력받을거니까 f로 쓴다
+			//2.입력스트림
+			
+			while(sc.hasNext())			//파일 내용이 끝날때까지 읽어오겠다
+										//읽어올 내용이 남았다면 계속 읽어달라.
+										//hasNext가 true인 동안은 계속 읽는다
+			{
+				System.out.println(sc.nextLine());
+			}
+			sc.close();					//Scanner도 닫아주자
+		}
+		catch(FileNotFoundException fnfe)	//이거는 컴파일할때 오류났던 문장을 그대로 적어준다
+		{
+			System.out.println("FileNotFoundException 발생");
+		}
+	}
+}
