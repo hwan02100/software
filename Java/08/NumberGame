@@ -1,0 +1,28 @@
+//java Day03-06 83페이지 숫자추측게임 예제
+
+import java.util.Scanner;
+
+class NumberGame
+{
+	public static void main(String args [])
+	{
+		Scanner sc = new Scanner(System.in);
+		int jungdap = 79;			//추측할 숫자 고정
+		int userInput, tries=0;
+		
+		do
+		{
+			System.out.print("0~100까지의 정수를 입려하여 답을 맞춰보세요 : ");
+			userInput = sc.nextInt();
+			if(userInput<jungdap)
+				System.out.print("정답은 좀더 큰 수입니다\n");
+			else if(userInput>jungdap)
+				System.out.print("정답은 좀더 작은 수입니다\n");
+			tries++;
+		}
+		while(userInput != jungdap);
+		
+		System.out.printf("%d는 정답입니다. %d번만에 맞추셨습니다\n", userInput, tries);
+		
+	}
+}
