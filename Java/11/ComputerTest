@@ -1,0 +1,87 @@
+//컴퓨터 클래스 작성 : 디폴트 생성자, 이제까지 생성된 컴퓨터 개수 필드 존재
+//컴퓨터 테스트 클래스 : 컴퓨터 몇대 생산하고, 이제까지 생성된 컴퓨터 수 출력
+//단, 내가 컴퓨터 수 계산하지 말것.
+//이 외에 추가적으로 필요한 필드나 메소드가 있다면 알아서 구현할 것
+
+class Computer
+{
+//	private static int numOfComs;		//필드를 공유하고 싶을 때
+	static int numOfComs;				//static 멤버는 객체명.멤버로 접근하지 않고, 클래스명.멤버
+	
+	//static 메소드는 누가 실행하더라도 같은 결과를 내는 메소드
+	//이제까지 생산된 컴퓨터 개수 반환하는 메소드를 만들어보자
+	
+	//static : 객체가 없더라도 접근 가능
+	//non-static 멤버 : 객체.멤버로 접근, 객체가 없는 상황에서는 호출 불가능
+	
+	//static 메소드에서 non-static 멤버 접근 불가
+	static void printColor()
+	{
+		System.out.println("컴퓨터의 색상 : " + color);
+	}
+	
+	
+	//그러면 non-static 메소드에서 static 멤버는 접근 가능?
+	//ㅇㅇ 가능함
+	
+	static int getNumOfComs()
+	{
+		return numOfComs;
+	}
+	
+	
+	
+	
+	Computer()
+	{
+		numOfComs++;
+		System.out.println("컴퓨터 한대 생성");
+	}
+	
+	
+}
+
+/*	
+	int getNumOfComs()
+	{
+		return numOfComs;
+	}
+*/
+
+}
+
+class ComputerTest
+{
+	public static void main(String args[])
+	{
+		Computer.printColor();				//static 메소드에서 non-static 멤버 접근 불가
+/*		
+		Computer c1 = new Computer();
+		Computer c2 = new Computer();
+		Computer c3 = new Computer();
+		Computer c4 = new Computer();
+		Computer c5 = new Computer();
+	/*	
+		System.out.println("이제까지 생성된 컴퓨터 : " + c5.getNumOfComs() + "대입니다");		//이렇게 하면 1대입니다 가 출력된다
+																				//c1의 numOfComs가 +1이 되고
+																				//c2의 numOfComs가 +1이 되고
+																				//각각의 numOfComs가 1이 되기 때문
+																				//그러니 numOfComs를 공유하고 싶다 => private static int numOfComs
+																				
+																				//그러면 5대 나온다
+		System.out.println("이제까지 생성된 컴퓨터 : " + c1.getNumOfComs() + "대입니다");		//문제는 이래도 5대 나온다																
+	*/
+
+	//	System.out.println("이제까지 생성된 컴퓨터 : " +Computer.numOfComs + "대입니다");
+/*	
+		System.out.println("이제까지 생성된 컴퓨터 : " +Computer.getNumOfComs() + "대입니다");
+*/
+	
+		System.out.println("이제까지 생성된 컴퓨터 : " +Computer.getNumOfComs() + "대입니다");			//객체가 없는 상황에서도 호출이 가능하다
+		Computer c1 = new Computer();
+		Computer c2 = new Computer();
+		Computer c3 = new Computer();
+		Computer c4 = new Computer();
+		Computer c5 = new Computer();
+	}
+}
