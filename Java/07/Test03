@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+class Test03
+{
+	public static void main(String args[])
+	{
+		Scanner sc = new Scanner(System.in);
+		double down,side;
+		double area, cross;
+		
+		while(true)
+		{
+			System.out.print("가로 : ");
+			down = sc.nextDouble();
+			if(down>0)
+				break;
+			System.out.print("[입력오류] 가로의 길이는 양수로 입력해주세요.\n");
+		}
+		
+		while(true)
+		{
+			System.out.print("세로 : ");
+			side = sc.nextDouble();
+			if(side>0)
+				break;
+			System.out.print("[입력오류] 세로의 길이는 양수로 입력해주세요.\n");
+		}
+		
+		area = down*side;
+		cross = Math.sqrt( Math.pow(down,2) + Math.pow(side,2) );
+		
+		if(area%1==0)
+			System.out.printf("넓이 : %d\n", (int)area);
+		else
+			System.out.printf("넓이 : %.2f\n", area);
+		
+		if(cross%1==0)
+			System.out.printf("대각선의 길이 : %d\n", (int)cross);
+		else
+			System.out.printf("대각선의 길이 : %.2f\n", cross);
+	}
+}
